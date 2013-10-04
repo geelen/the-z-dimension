@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flat</title>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+  <style>
+    .pane { padding: 20px 20px; height: 80px; box-shadow: 0 0 10px black; }
+    .one { background-color: palegoldenrod; }
+    .two { background-color: papayawhip; }
+    .three { background-color: peru; }
+    .abs { position: absolute; }
+    .abs-max { width: 100%; height: 100%; top: 0; left: 0; }
+    .rel { position: relative; }
+    .rel-max { width: 100%; height: 100%; }
+    .abs-one { background-color: azure; left: 80px; z-index: 1; }
+    .abs-two { background-color: cornsilk; right: 80px; z-index: -1; }
+    .spacer { height: 80px; }
+
+    body { padding: 60px; }
+
+  </style>
+</head>
+<body>
+  <div class="pane abs abs-one" data-layer="1"><h2>Over the top!</h2></div>
+  <div class="pane abs abs-two" data-layer="-1"><h2>Beneath!</h2></div>
+  <div class="spacer"></div>
+  <div class="pane one"><h1>One</h1></div>
+  <div class="pane two" data-order="1"><h2>Two</h2></div>
+  <div class="pane three" data-order="2"><h3>Three</h3></div>
+</body>
+</html>
