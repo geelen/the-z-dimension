@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flat</title>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+  <style>
+    .pane { padding: 20px 20px; height: 80px; box-shadow: 0 0 10px black; }
+    .one { background-color: palegoldenrod; }
+    .two { background-color: papayawhip; }
+    .three { background-color: peru; }
+    .abs { position: absolute; }
+    .abs-one { background-color: azure; left: 20px; }
+    .abs-two { background-color: cornsilk; right: 20px; z-index: -1; }
+    .spacer { height: 80px; }
+
+  </style>
+</head>
+<body>
+  <div class="pane abs abs-one"><h2>Over the top!</h2></div>
+  <div class="pane abs abs-two"><h2>Beneath!</h2></div>
+  <div class="spacer"></div>
+  <div class="pane one"><h1>One</h1></div>
+  <div class="pane two"><h2>Two</h2></div>
+  <div class="pane three"><h3>Three</h3></div>
+
+  <script>
+    var forEach = Array.prototype.forEach;
+    forEach.call(document.querySelectorAll(".pane"), function(pane) {
+      pane.classList.add("filter")
+    });
+  </script>
+</body>
+</html>
