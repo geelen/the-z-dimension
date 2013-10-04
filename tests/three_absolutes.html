@@ -9,9 +9,15 @@
     .two { background-color: papayawhip; }
     .three { background-color: peru; }
     .abs { position: absolute; }
-    .abs-one { background-color: azure; left: 20px; }
+    .abs-one { background-color: azure; left: 20px; z-index: 1; }
     .abs-two { background-color: cornsilk; right: 20px; z-index: -1; }
     .spacer { height: 80px; }
+
+    .shader {
+      -webkit-filter:
+          custom(url(/shaders/vertex.vs) mix(url(/shaders/fragment.fs) normal source-atop),
+          50 50, amount 0, strength 0.2, lightIntensity 1.05);
+    }
 
   </style>
 </head>
@@ -26,7 +32,7 @@
   <script>
     var forEach = Array.prototype.forEach;
     forEach.call(document.querySelectorAll(".pane"), function(pane) {
-      pane.classList.add("filter")
+      pane.classList.add("shader");
     });
   </script>
 </body>
