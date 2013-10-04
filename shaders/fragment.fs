@@ -1,13 +1,13 @@
 precision mediump float;
 
 void main() {
-    float r = 1.0;
-    float g = 1.0;
-    float b = 1.0;
-    float a = 0.8;
+  float r = 1.0;
+  float g = 1.0;
+  float b = 1.0;
+  float a = 0.8;
 
-    css_ColorMatrix = mat4( r  , 0.0, 0.0, 0.0,
-                            0.0, g  , 0.0, 0.0,
-                            0.0, 0.0, b  , 0.0,
-                            0.0, 0.0, 0.0, a );
+  css_ColorMatrix = mat4( r  , 0.0, 0.0, 0.0,
+                          0.0, g  , 0.0, 0.0,
+                          0.0, 0.0, b  , 0.0,
+                          0.0, 0.0, 0.0, a );
 }

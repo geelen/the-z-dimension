@@ -9,14 +9,24 @@
     .two { background-color: papayawhip; }
     .three { background-color: peru; }
     .abs { position: absolute; }
+    .abs-max { width: 100%; height: 100%; top: 0; left: 0; }
+    .rel { position: relative; }
+    .rel-max { width: 100%; height: 100%; }
     .abs-one { background-color: azure; left: 20px; z-index: 1; }
     .abs-two { background-color: cornsilk; right: 20px; z-index: -1; }
     .spacer { height: 80px; }
 
     .shader {
       -webkit-filter:
-          custom(url(/shaders/vertex.vs) mix(url(/shaders/fragment.fs) normal source-atop),
-          50 50, amount 0, strength 0.2, lightIntensity 1.05);
+          custom(
+            url(/shaders/vertex.vs) mix(url(/shaders/fragment.fs) normal source-atop),
+            10 10,
+            matrix  perspective(1000)
+                    scale(1.0)
+                    rotateX(0deg)
+                    rotateY(80deg)
+                    rotateZ(0deg)
+          );
     }
 
   </style>
@@ -29,11 +39,21 @@
   <div class="pane two"><h2>Two</h2></div>
   <div class="pane three"><h3>Three</h3></div>
 
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script>
-    var forEach = Array.prototype.forEach;
-    forEach.call(document.querySelectorAll(".pane"), function(pane) {
-      pane.classList.add("shader");
-    });
+    $.each($('.pane'), function(_, e) {
+      elem = $(e), offset = elem.offset();
+      elem.css('width', elem.width() + "px");
+      elem.css('height', elem.height() + "px");
+      elem.css('left', offset.left + "px");
+      elem.css('top', offset.top + "px");
+    })
+    // whut. Why these need separate?
+    $.each($('.pane'), function(_, e) {
+      elem = $(e);
+      elem.css('position', 'absolute');
+      elem.wrap("<div class='shader abs abs-max'></div>");
+    })
   </script>
 </body>
 </html>
