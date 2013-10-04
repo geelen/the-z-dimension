@@ -16,19 +16,6 @@
     .abs-two { background-color: cornsilk; right: 20px; z-index: -1; }
     .spacer { height: 80px; }
 
-    .shader {
-      -webkit-filter:
-          custom(
-            url(/shaders/vertex.vs) mix(url(/shaders/fragment.fs) normal source-atop),
-            10 10,
-            matrix  perspective(1000)
-                    scale(1.0)
-                    rotateX(0deg)
-                    rotateY(80deg)
-                    rotateZ(0deg)
-          );
-    }
-
   </style>
 </head>
 <body>
@@ -41,19 +28,31 @@
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script>
+    var filterExpr = function(layer, zIndex) {
+      var translateZ = layer * 10;
+      return "custom(url(/shaders/vertex.vs) mix(url(/shaders/fragment.fs) " +
+              "normal source-atop), 3 3," +
+              "matrix perspective(1000) scale(1.0) " +
+              "translateZ(-500px) " +
+              "rotateY(60deg) " +
+              "translateZ(" + translateZ + "px) " +
+              ");"
+    };
+
     $.each($('.pane'), function(_, e) {
       elem = $(e), offset = elem.offset();
       elem.css('width', elem.width() + "px");
       elem.css('height', elem.height() + "px");
       elem.css('left', offset.left + "px");
       elem.css('top', offset.top + "px");
-    })
+    });
     // whut. Why these need separate?
-    $.each($('.pane'), function(_, e) {
+    $.each($('.pane'), function(i, e) {
       elem = $(e);
       elem.css('position', 'absolute');
-      elem.wrap("<div class='shader abs abs-max'></div>");
-    })
+      wrap = $("<div class='shader abs abs-max' style='-webkit-filter: " + filterExpr(i) + "'></div>");
+      elem.wrap(wrap);
+    });
   </script>
 </body>
 </html>
