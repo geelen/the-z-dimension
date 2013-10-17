@@ -9,6 +9,11 @@
 <script src="lib/TrackballControls.js"></script>
 <script>
   (function () {
+    var time = function (block) {
+      var begin = performance.now();
+      block();
+      console.log(performance.now() - begin);
+    }
     var sg = new SuperGif({gif: document.getElementsByTagName("img")[0]});
 
     sg.load(function () {
@@ -36,53 +41,51 @@
 
         scene = new THREE.Scene();
 
-        var particleCount = 1800,
-          particles = new THREE.Geometry(),
-          pMaterial = new THREE.ParticleBasicMaterial({
-//            vertexColors: true,
-            size: 0.1
-          });
+        for (var i = 0, l = frames.length; i < l; i++) {
+          var texture = new THREE.Texture(frames[i].data);
+          texture.needsUpdate = true;
+//
+//          var particleCount = 1800,
+//            particles = new THREE.Geometry(),
+//            pMaterial = new THREE.ParticleBasicMaterial({
+//              vertexColors: true,
+////              map: texture,
+//              size: 1
+//            });
+//
+//          var colors = [];
+//
+//          time(function () {
+//            for (var j = 0; j < height; j++) {
+//              for (var k = 0; k < width; k++) {
+//                var vertex = new THREE.Vector3();
+//                vertex.z = 250 - i * 10 + Math.random() * 10;
+//                vertex.y = height / 2 - j + Math.random();
+//                vertex.x = k - width / 2 + Math.random();
+//
+//                particles.vertices.push(vertex);
+//                var canvasIndex = 4 * (j * width + k);
+//                var color = new THREE.Color();
+//                var data = frames[i].data.data;
+//                color.setRGB(data[canvasIndex + 0] / 255, data[canvasIndex + 1] / 255, data[canvasIndex + 2] / 255);
+//                colors.push(color);
+//              }
+//            }
+//            particles.colors = colors;
+//          });
+//
+//          var particleSystem = new THREE.ParticleSystem(particles, pMaterial);
+//          scene.add(particleSystem);
 
-        var colors = [];
+          var geometry = new THREE.CubeGeometry(width, height, 0);
 
-        var begin = performance.now();
-        for (var i = 0, l = frames.length; i < l; i+=5) {
-          for (var j = 0; j < height; j++) {
-            for (var k = 0; k < width; k++) {
-              var vertex = new THREE.Vector3();
-              vertex.z = 250 - i * 10 + Math.random() * 10;
-              vertex.y = height / 2 - j + Math.random();
-              vertex.x = k - width / 2 + Math.random();
+          var material = new THREE.MeshBasicMaterial({ map: texture});
 
-//              particles.vertices.push(vertex);
-//              var canvasIndex = 4 * (j * width + k);
-//              var color = new THREE.Color();
-//              var data = frames[i].data.data;
-//              color.setRGB(data[canvasIndex + 0] / 255, data[canvasIndex + 1] / 255, data[canvasIndex + 2] / 255);
-//              colors.push(color);
-            }
-          }
+          var mesh = new THREE.Mesh(geometry, material);
+          mesh.position.set(0, 0, -50 * i);
+
+          scene.add(mesh);
         }
-        particles.colors = colors;
-        console.log(performance.now() - begin);
-
-        var particleSystem = new THREE.ParticleSystem(particles, pMaterial);
-
-        scene.add(particleSystem);
-
-//          for (var i = 0, l = frames.length; i < l; i++) {
-//            var geometry = new THREE.CubeGeometry( width, height, 0 );
-//
-//            var texture = new THREE.Texture(frames[i].data);
-//            texture.needsUpdate = true;
-//
-//            var material = new THREE.MeshBasicMaterial( { map: texture} );
-//
-//            var mesh = new THREE.Mesh( geometry, material );
-//            mesh.position.set(0, 0, -50 * i);
-//
-//            scene.add( mesh );
-//          }
 
         renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
