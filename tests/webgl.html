@@ -39,35 +39,34 @@
         var particleCount = 1800,
           particles = new THREE.Geometry(),
           pMaterial = new THREE.ParticleBasicMaterial({
-            vertexColors: true,
-            size: 10
+//            vertexColors: true,
+            size: 0.1
           });
 
         var colors = [];
 
-        // now create the individual particles
-        for (var p = 0; p < particleCount; p++) {
+        var begin = performance.now();
+        for (var i = 0, l = frames.length; i < l; i+=5) {
+          for (var j = 0; j < height; j++) {
+            for (var k = 0; k < width; k++) {
+              var vertex = new THREE.Vector3();
+              vertex.z = 250 - i * 10 + Math.random() * 10;
+              vertex.y = height / 2 - j + Math.random();
+              vertex.x = k - width / 2 + Math.random();
 
-          // create a particle with random
-          // position values, -250 -> 250
-          var pX = Math.random() * 500 - 250,
-            pY = Math.random() * 500 - 250,
-            pZ = Math.random() * 500 - 250,
-            particle = new THREE.Vertex(
-              new THREE.Vector3(pX, pY, pZ)
-            );
-
-          // add it to the geometry
-          particles.vertices.push(particle);
-          colors[p] = new THREE.Color(0xffffff);
-          colors[p].setHSL(Math.random(), 1, 0.5);
+//              particles.vertices.push(vertex);
+//              var canvasIndex = 4 * (j * width + k);
+//              var color = new THREE.Color();
+//              var data = frames[i].data.data;
+//              color.setRGB(data[canvasIndex + 0] / 255, data[canvasIndex + 1] / 255, data[canvasIndex + 2] / 255);
+//              colors.push(color);
+            }
+          }
         }
         particles.colors = colors;
+        console.log(performance.now() - begin);
 
-        var particleSystem =
-          new THREE.ParticleSystem(
-            particles,
-            pMaterial);
+        var particleSystem = new THREE.ParticleSystem(particles, pMaterial);
 
         scene.add(particleSystem);
 
