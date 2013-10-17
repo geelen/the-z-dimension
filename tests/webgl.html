@@ -40,47 +40,48 @@
         controls = new THREE.TrackballControls(camera);
 
         scene = new THREE.Scene();
+        time(function () {
 
-        for (var i = 0, l = frames.length, l = 1; i < l; i++) {
-          var texture = new THREE.Texture(frames[i].data);
-          texture.needsUpdate = true;
+          for (var i = 0, l = frames.length; i < l; i++) {
+            var texture = new THREE.Texture(frames[i].data);
+            texture.needsUpdate = true;
 //
-          var geometry = new THREE.BufferGeometry();
+            var geometry = new THREE.BufferGeometry();
 
-          geometry.attributes = {
-            position: {
-              itemSize: 3,
-              array: new Float32Array(height * width * 3)
-            },
-            color: {
-              itemSize: 3,
-              array: new Float32Array(height * width * 3)
-            }
-          };
+            geometry.attributes = {
+              position: {
+                itemSize: 3,
+                array: new Float32Array(height * width * 3)
+              },
+              color: {
+                itemSize: 3,
+                array: new Float32Array(height * width * 3)
+              }
+            };
 
-          var positions = geometry.attributes.position.array;
-          var colors = geometry.attributes.color.array;
+            var positions = geometry.attributes.position.array;
+            var colors = geometry.attributes.color.array;
 
-          time(function () {
+            var data = frames[i].data.data;
             for (var j = 0; j < height; j++) {
               for (var k = 0; k < width; k++) {
                 var vertexIndex = (j * width + k) * 3;
-                positions[vertexIndex + 0] = k - width / 2;// + Math.random();
-                positions[vertexIndex + 1] = height / 2 - j;// + Math.random();
-                positions[vertexIndex + 2] = 250 - i * 10;// + Math.random() * 10;
+                positions[vertexIndex + 0] = k - width / 2 + Math.random();
+                positions[vertexIndex + 1] = height / 2 - j + Math.random();
+                positions[vertexIndex + 2] = 250 - i * 10 + Math.random() * 10;
 
-                colors[vertexIndex + 0] = Math.random();
-                colors[vertexIndex + 1] = Math.random();
-                colors[vertexIndex + 2] = Math.random();
+                var canvasIndex = (j * width + k) * 4;
+                colors[vertexIndex + 0] = data[canvasIndex + 0] / 255;
+                colors[vertexIndex + 1] = data[canvasIndex + 1] / 255;
+                colors[vertexIndex + 2] = data[canvasIndex + 2] / 255;
               }
             }
-          });
-          geometry.computeBoundingSphere();
+            geometry.computeBoundingSphere();
 
-          var material = new THREE.ParticleBasicMaterial( { size: 1, vertexColors: true } );
+            var material = new THREE.ParticleBasicMaterial({ size: 1, vertexColors: true });
 
-          var particleSystem = new THREE.ParticleSystem(geometry, material);
-          scene.add(particleSystem);
+            var particleSystem = new THREE.ParticleSystem(geometry, material);
+            scene.add(particleSystem);
 
 //          var geometry = new THREE.CubeGeometry(width, height, 0);
 //
@@ -90,7 +91,8 @@
 //          mesh.position.set(0, 0, -50 * i);
 //
 //          scene.add(mesh);
-        }
+          }
+        });
 
         renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
