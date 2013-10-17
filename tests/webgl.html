@@ -40,6 +40,7 @@
         controls = new THREE.TrackballControls(camera);
 
         scene = new THREE.Scene();
+        particleFrames = [];
         time(function () {
 
           for (var i = 0, l = frames.length; i < l; i++) {
@@ -68,7 +69,7 @@
                 var vertexIndex = (j * width + k) * 3;
                 positions[vertexIndex + 0] = k - width / 2 + Math.random();
                 positions[vertexIndex + 1] = height / 2 - j + Math.random();
-                positions[vertexIndex + 2] = 250 - i * 10 + Math.random() * 10;
+                positions[vertexIndex + 2] = Math.random() * 10;
 
                 var canvasIndex = (j * width + k) * 4;
                 colors[vertexIndex + 0] = data[canvasIndex + 0] / 255;
@@ -78,10 +79,12 @@
             }
             geometry.computeBoundingSphere();
 
-            var material = new THREE.ParticleBasicMaterial({ size: 1, vertexColors: true });
+            var material = new THREE.ParticleBasicMaterial({ size: 0.1, vertexColors: true });
 
             var particleSystem = new THREE.ParticleSystem(geometry, material);
+            particleSystem.position.set(0, 0, 250 - i * 10);
             scene.add(particleSystem);
+            particleFrames.push(particleSystem);
 
 //          var geometry = new THREE.CubeGeometry(width, height, 0);
 //
@@ -101,9 +104,18 @@
 
       }
 
+      requestAnimationFrame(function () {
+      });
+
       function animate() {
         // note: three.js includes requestAnimationFrame shim
         requestAnimationFrame(animate);
+
+        particleFrames.forEach(function (particleFrame) {
+          var newZ = particleFrame.position.z + 10;
+          if (newZ > 250) newZ -= 10 * frames.length;
+          particleFrame.position.set(0, 0, newZ);
+        });
 
         controls.update();
 
