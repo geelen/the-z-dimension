@@ -45,32 +45,41 @@
           var texture = new THREE.Texture(frames[i].data);
           texture.needsUpdate = true;
 //
-          var particleCount = 1800,
-            particles = new THREE.Geometry(),
-            pMaterial = new THREE.ParticleBasicMaterial({
-//              vertexColors: true,
-              color: 0xffffff,
-              map: texture,
-              size: 1
-            });
+          var geometry = new THREE.BufferGeometry();
 
-          var colors = [];
+          geometry.attributes = {
+            position: {
+              itemSize: 3,
+              array: new Float32Array(height * width * 3)
+            },
+            color: {
+              itemSize: 3,
+              array: new Float32Array(height * width * 3)
+            }
+          };
+
+          var positions = geometry.attributes.position.array;
+          var colors = geometry.attributes.color.array;
 
           time(function () {
             for (var j = 0; j < height; j++) {
               for (var k = 0; k < width; k++) {
-                var vertex = new THREE.Vector3();
-                vertex.z = 250 - i * 10;// + Math.random() * 10;
-                vertex.y = height / 2 - j;// + Math.random();
-                vertex.x = k - width / 2;// + Math.random();
-                particles.vertices.push(vertex);
+                var vertexIndex = (j * width + k) * 3;
+                positions[vertexIndex + 0] = k - width / 2;// + Math.random();
+                positions[vertexIndex + 1] = height / 2 - j;// + Math.random();
+                positions[vertexIndex + 2] = 250 - i * 10;// + Math.random() * 10;
 
+                colors[vertexIndex + 0] = Math.random();
+                colors[vertexIndex + 1] = Math.random();
+                colors[vertexIndex + 2] = Math.random();
               }
             }
           });
+          geometry.computeBoundingSphere();
 
+          var material = new THREE.ParticleBasicMaterial( { size: 1, vertexColors: true } );
 
-          var particleSystem = new THREE.ParticleSystem(particles, pMaterial);
+          var particleSystem = new THREE.ParticleSystem(geometry, material);
           scene.add(particleSystem);
 
 //          var geometry = new THREE.CubeGeometry(width, height, 0);
