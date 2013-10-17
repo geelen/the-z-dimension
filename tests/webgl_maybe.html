@@ -4,11 +4,19 @@
   <title>Flat</title>
   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
   <style>
+    :root { border: 10px solid red;
+    background: repeating-linear-gradient(180deg, rgba(0,0,0,0.4) 0, rgba(0,0,0,0.4) 20px, rgba(0,0,0,0.2) 20px, rgba(0,0,0,0.2) 40px); }
+    body {
+      /*-webkit-transform: translate3d(0,0,0);*/
+      border: 10px solid blue;
+      background: repeating-linear-gradient(90deg, rgba(0,0,0,0.4) 0, rgba(0,0,0,0.4) 20px, rgba(0,0,0,0.2) 20px, rgba(0,0,0,0.2) 40px); }
+    .root { border: 1px solid black; padding: 20px; }
     .pane { padding: 20px 20px; height: 80px; box-shadow: 0 0 10px black; }
     .one { background-color: palegoldenrod; }
     .two { background-color: papayawhip; }
     .three { background-color: peru; }
     .abs { position: absolute; }
+    .fixed { position: fixed; -webkit-transform: translate3d(0,0,0); }
     .abs-max { width: 100%; height: 100%; top: 0; left: 0; }
     .rel { position: relative; }
     .rel-max { width: 100%; height: 100%; }
@@ -21,11 +29,13 @@
   </style>
 </head>
 <body>
-  <div class="pane abs abs-one" data-layer="1"><h2>Over the top!</h2></div>
-  <div class="pane abs abs-two" data-layer="-1"><h2>Beneath!</h2></div>
-  <div class="spacer"></div>
-  <div class="pane one"><h1>One</h1></div>
-  <div class="pane two" data-order="1"><h2>Two</h2></div>
-  <div class="pane three" data-order="2"><h3>Three</h3></div>
+  <div class="root">
+    <div class="pane fixed abs-one"><h2>Over the top!</h2></div>
+    <div class="pane abs abs-two"><h2>Beneath!</h2></div>
+    <div class="spacer"></div>
+    <div class="pane one"><h1>One</h1></div>
+    <div class="pane two" data-order="1"><h2>Two</h2></div>
+    <div class="pane three" data-order="2"><h3>Three</h3></div>
+  </div>
 </body>
 </html>
