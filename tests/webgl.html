@@ -3,7 +3,7 @@
   <link rel="stylesheet" href="lib/styles.css">
 </head>
 <body ng-controller="BodyCtrl">
-<img src="" rel:animated_src="lib/sneakers.gif">
+<img src="" rel:animated_src="lib/hsnr0f5.gif">
 <script src="lib/libgif.js"></script>
 <script src="/bower_components/threejs/build/three.js"></script>
 <script src="lib/TrackballControls.js"></script>
@@ -104,14 +104,11 @@
 
       }
 
-      requestAnimationFrame(function () {
-      });
-
       function animate() {
         // note: three.js includes requestAnimationFrame shim
         requestAnimationFrame(animate);
 
-        particleFrames.forEach(function (particleFrame) {
+        particleFrames.forEach(function (particleFrame, i) {
           var newZ = particleFrame.position.z + 10;
           if (newZ > 250) newZ -= 10 * frames.length;
           particleFrame.position.set(0, 0, newZ);
