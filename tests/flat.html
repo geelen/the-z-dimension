@@ -27,6 +27,12 @@
     /*5:*/
     .f { background-color: hsl(225,80%,80%); position: relative; }
     /*:5*/
+    /*6:*/
+    .g { position: absolute; z-index: -1; padding: 40px; background-color: red; }
+    /*:6*/
+    /*7:*/
+    .h { position: absolute; z-index: 1; padding: 40px; top: 20px; background-color: blue; }
+    /*:7*/
 
     /** { -webkit-animation: shadowbounce 3s linear 0s infinite; }*/
     /*:4*/
@@ -40,11 +46,14 @@
     A
     <div class="c"><!--3:--><span><!--:3-->C<!--3:--></span><!--:3--></div>
     <!--4:--><div class="e">E</div><!--:4-->
-    <!--5:--><div class="f">F</div><!--:f-->
-    <div class="d"><!--3:--><span><!--:3-->D<!--3:--></span><!--:3--></div>
+    <!--5:--><div class="f">F</div><!--:5-->
+    <div class="d"><!--3:--><span><!--:3-->D<!--3:--></span><!--:3-->
+      <!--6:--><div class="g">G</div><!--:6-->
+    </div>
   </div>
   <div class="b">
     B
   </div>
+  <!--7:--><div class="h">H</div><!--:7-->
 </body>
 </html>
