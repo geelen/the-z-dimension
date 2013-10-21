@@ -13,6 +13,16 @@
 
     .example iframe {
       float: right;
+      height: 100%;
+    }
+
+    span.added {
+      color: green;
+      font-weight: bold;
+    }
+    span.old {
+      color: darkgray;
+      font-size: 0.5em;
     }
   </style>
 
@@ -23,16 +33,17 @@
 <worked-example src="stacking-order"></worked-example>
 
 <script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/underscore/underscore.js"></script>
 <script>
   (function () {
     'use strict';
 
     var app = angular.module("HtmlDemo", []);
 
-    app.directive("workedExample", function () {
+    app.directive("workedExample", function ($sce) {
       return {
         restrict: 'E',
-        template: "<div class=\"example\" ng-click='incrementSlide()'>\n  <iframe frameborder=\"0\"></iframe>\n<pre>{{ visibleTemplate() }}</pre>\n  </div>",
+        template: "<div class=\"example\" ng-click='incrementSlide()'>\n  <iframe frameborder=\"0\"></iframe>\n<pre ng-bind-html='visibleTemplate()'></pre>\n  </div>",
         replace: "true",
         link: function (scope, el, attrs) {
           var template = document.getElementById('stacking-order').innerHTML,
@@ -41,36 +52,52 @@
           scope.slide = 0;
           scope.incrementSlide = function() { scope.slide++; }
 
-          var chunks = template.split(/(?=\/\*\d:\*\/)|(?=\/\*:\d\*\/)/g).map(function (chunk) {
-            var start = chunk.match(/\/\*(\d):\*\/([\s\S]*)/);
-            var end = chunk.match(/\/\*:(\d)\*\/([\s\S]*)/);
+          window.template = template;
+          window.datRegexp = /(?=<!\-\-\d:\-\->)|(?=\/\*\d:\*\/)|(?=\/\*:\d\*\/)|(?=<!\-\-:\d\-\->)/g;
+          var chunks = template.split(datRegexp).map(function (chunk) {
+            var start = chunk.match(/(\/\*|<!\-\-)(\d):(\-\->|\*\/)([\s\S]*)/);
+            var end = chunk.match(/(\/\*|<!\-\-):(\d)(\-\->|\*\/)([\s\S]*)/);
+            console.log(start);
+            console.log(end);
             if (start) {
-              var level = parseInt(start[1]);
-              console.log(start)
+              var level = parseInt(start[2]);
               return function (slide) {
-                console.log(slide);
-                if (slide >= level) return start[2];
+                if (slide >= level) return start[4];
               };
             } else if (end) {
               return function (slide) {
-                return end[2];
+                return end[4];
               }
             } else return function() {
-              return chunk;
+              return chunk.replace(/\n\s*\n/,'\n');
             }
           });
 
           scope.visibleTemplate = function () {
-            return chunks.map(function (c) {
-              return c(scope.slide);
-            }).join("").replace(/\n\s*\n/,'\n');
+            return $sce.trustAsHtml(chunks.map(function (c) {
+              if (c(scope.slide)) {
+                if (scope.slide == 0) {
+                  return _.escape(c(scope.slide));
+                } else if (!c(scope.slide - 1)) {
+                  return "<span class='added'>" + _.escape(c(scope.slide)) + "</span>";
+                } else {
+                  return "<span class='old'>" + _.escape(c(scope.slide)) + "</span>";
+                }
+              }
+
+            }).join("").replace(/\n\s*\n/,'\n'));
           }
 
-          console.log(chunks);
+          console.log(scope.visibleTemplate());
 
           scope.template = template;
 
-          iframe[0].contentDocument.write(template);
+          scope.$watch('slide', function() {
+            var doc = iframe[0].contentDocument;
+            doc.open();
+            doc.write(chunks.map(function (c) { return c(scope.slide); }).join(""));
+            doc.close();
+          })
 
           window.template = template;
           window.iframe = iframe;
@@ -98,7 +125,7 @@
       .d { background-color: hsl(270,80%,80%); }
 
       /*1:*/
-      /*div { box-shadow: 0 0 40px 40px black; }*/
+      div { box-shadow: 0 0 40px 40px black; }
       /*:1*/
       /*2:*/
       html { color: red; }
