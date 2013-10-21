@@ -1,0 +1,149 @@
+<html>
+<head>
+  <style>
+    .example > * {
+      margin: 0;
+      padding: 0;
+      width: 50%;
+    }
+
+    .example pre {
+      overflow: auto;
+    }
+
+    .example iframe {
+      float: right;
+    }
+  </style>
+
+</head>
+<body ng-app="HtmlDemo">
+<h1>HEYO</h1>
+
+<worked-example src="stacking-order"></worked-example>
+
+<script src="/bower_components/angular/angular.js"></script>
+<script>
+  (function () {
+    'use strict';
+
+    var app = angular.module("HtmlDemo", []);
+
+    app.directive("workedExample", function () {
+      return {
+        restrict: 'E',
+        template: "<div class=\"example\" ng-click='incrementSlide()'>\n  <iframe frameborder=\"0\"></iframe>\n<pre>{{ visibleTemplate() }}</pre>\n  </div>",
+        replace: "true",
+        link: function (scope, el, attrs) {
+          var template = document.getElementById('stacking-order').innerHTML,
+            example = el.find('pre'),
+            iframe = el.find('iframe');
+          scope.slide = 0;
+          scope.incrementSlide = function() { scope.slide++; }
+
+          var chunks = template.split(/(?=\/\*\d:\*\/)|(?=\/\*:\d\*\/)/g).map(function (chunk) {
+            var start = chunk.match(/\/\*(\d):\*\/([\s\S]*)/);
+            var end = chunk.match(/\/\*:(\d)\*\/([\s\S]*)/);
+            if (start) {
+              var level = parseInt(start[1]);
+              console.log(start)
+              return function (slide) {
+                console.log(slide);
+                if (slide >= level) return start[2];
+              };
+            } else if (end) {
+              return function (slide) {
+                return end[2];
+              }
+            } else return function() {
+              return chunk;
+            }
+          });
+
+          scope.visibleTemplate = function () {
+            return chunks.map(function (c) {
+              return c(scope.slide);
+            }).join("").replace(/\n\s*\n/,'\n');
+          }
+
+          console.log(chunks);
+
+          scope.template = template;
+
+          iframe[0].contentDocument.write(template);
+
+          window.template = template;
+          window.iframe = iframe;
+
+        }
+      }
+    });
+
+  })();
+
+
+</script>
+
+<script type="text/template" id="stacking-order">
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>Flat</title>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.3/normalize.min.css">
+    <style>
+      .a, .b, .c, .d { padding: 10px; margin: 4px; }
+      .a { background-color: hsl(0,80%,80%); }
+      .b { background-color: hsl(90,80%,80%); }
+      .c { background-color: hsl(180,80%,80%); }
+      .d { background-color: hsl(270,80%,80%); }
+
+      /*1:*/
+      /*div { box-shadow: 0 0 40px 40px black; }*/
+      /*:1*/
+      /*2:*/
+      html { color: red; }
+      /*:2*/
+      /*3:*/
+      span { background-color: hsl(45,80%,80%); }
+      /*span:hover { box-shadow: 0 0 40px 50px blue; }*/
+      /*:3*/
+
+      /*4:*/
+      .e { padding: 10px; background-color: hsl(135,80%,80%); float: left; }
+      /*:4*/
+      /*5:*/
+      .f { background-color: hsl(225,80%,80%); position: relative; z-index: 0; }
+      /*:5*/
+      /*6:*/
+      .g { position: absolute; z-index: -1; padding: 40px; background-color: red; }
+      /*:6*/
+      /*7:*/
+      .h { position: absolute; z-index: 1; padding: 40px; top: 20px; background-color: blue; }
+      /*:7*/
+
+      /** { -webkit-animation: shadowbounce 3s linear 0s infinite; }*/
+      /*:4*/
+      /*5:*/
+      div:hover, span:hover { box-shadow: 0 0 40px 40px black; }
+      /*:5*/
+    </style>
+  </head>
+  <body>
+    <!--7:--><div class="h">H</div><!--:7-->
+    <div class="a">
+      A
+      <div class="c"><!--3:--><span><!--:3-->C<!--3:--></span><!--:3--></div>
+      <!--4:--><div class="e">E</div><!--:4-->
+      <!--5:--><div class="f">F</div><!--:5-->
+      <div class="d"><!--3:--><span><!--:3-->D<!--3:--></span><!--:3-->
+        <!--6:--><div class="g">G</div><!--:6-->
+      </div>
+    </div>
+    <div class="b">
+      B
+    </div>
+  </body>
+  </html>
+</script>
+</body>
+</html>
