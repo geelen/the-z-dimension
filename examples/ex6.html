@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flat</title>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.3/normalize.min.css">
+  <style>
+    .a, .b, .c, .d { padding: 10px; margin: 4px; }
+    .a { background-color: hsl(0,80%,80%); }
+    .b { background-color: hsl(90,80%,80%); }
+    .c { background-color: hsl(180,80%,80%); }
+    .d { background-color: hsl(270,80%,80%); }
+
+    div:hover, span:hover { box-shadow: 0 0 40px 40px black; }
+    html { color: red; }
+    span { background-color: hsl(45,80%,80%); }
+    .e { padding: 10px; background-color: hsl(135,80%,80%); float: left; }
+    .f { background-color: hsl(225,80%,80%); position: relative; z-index: 0; }
+    .g { position: absolute; z-index: -1; padding: 40px; top: 160px; right: 20px; background-color: hsl(315,80%,80%); }
+  </style>
+</head>
+<body>
+  <div class="a">A
+    <div class="c">C</div>
+    <div class="e">FLOATED</div>
+    <div class="f">POSITIONED</div>
+    <div class="d">
+      <span>INLINE</span>
+    </div>
+    <div class="g">NEGATIVE</div>
+  </div>
+  <div class="b">
+    B
+  </div>
+</body>
+</html>
