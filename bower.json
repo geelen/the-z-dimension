@@ -16,6 +16,9 @@
   ],
   "dependencies": {
     "threejs": "*",
-    "angular": "~>1.2.0"
+    "angular": "~>1.2.0",
+    "bespoke.js": "~0.1.1",
+    "normalize-css": "~2.1.1",
+    "modernizr": "~2.6.2"
   }
 }

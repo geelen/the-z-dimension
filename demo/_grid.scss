@@ -1,0 +1,14 @@
+$gutter: 24px;
+$column: 104px;
+$grid_unit: $gutter + $column;
+
+$full_width_ten: 10 * $grid_unit - $gutter;
+$full_width_eight: 8 * $grid_unit - $gutter;
+$full_width_six: 6 * $grid_unit - $gutter;
+$full_width_four: 4 * $grid_unit - $gutter;
+$full_width_two: 2 * $grid_unit - $gutter;
+
+%grid {
+  margin: 0 auto;
+  .breakpoint-thin &
+}

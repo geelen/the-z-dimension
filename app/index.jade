@@ -1,0 +1,229 @@
+extends layout
+
+block content
+  article.bespoke-parent
+    section(data-bespoke-state='japan')
+      .content
+        .byline
+          .classy This talk is called:
+        h1
+          | Rolling your own
+          strong  Grid
+        .byline
+          .classy with this guy:
+        .me
+        .byline
+          a(href='http://codename.io') http://codename.io
+          a(href='https://twitter.com/glenmaddern') @glenmaddern
+          a(href='http://github.com/geelen') geelen
+
+    section(data-bespoke-state='')
+      .content
+        .byline
+          .classy Who am I?
+        .steps(data-bespoke-bullet)
+          h2(data-bespoke-bullet) • Hated the web (~2005)
+          h2(data-bespoke-bullet) • Yay maths! (~2008)
+          h2(data-bespoke-bullet) • Web, eh? (~2010)
+          h2(data-bespoke-bullet) • Startups, eh? (~2011)
+          h2(data-bespoke-bullet) • Front-end eh? (~2013)
+        .unbrokenline
+
+    section(data-bespoke-state='')
+      .content(data-bespoke-bullet)
+        .byline
+          .classy What excites me?
+        .steps
+          .step(data-bespoke-bullet)
+            h2 Designers
+          .step(data-bespoke-bullet)
+            .byline
+              .classy +
+            h2 Engineers
+          .step(data-bespoke-bullet)
+            .byline
+              .classy working
+            h2
+              strong together
+            .unbrokenline
+
+    section(data-bespoke-state='')
+      .content
+        .byline
+          .classy My Rule #1
+        h2 the
+          strong  closer
+          |  designers + engineers work
+        .unbrokenline
+        h2 the
+          strong  better
+          |  they understand each other
+        .unbrokenline
+        h2 the
+          strong  better
+          |  the result
+        .unbrokenline
+
+    section(data-bespoke-state='')
+      .content(data-bespoke-bullet)
+        .byline
+          .classy Grids
+        .steps
+          .step(data-bespoke-bullet)
+            h2 affect
+              strong  both
+              |  design & build
+            .unbrokenline
+          .step(data-bespoke-bullet)
+            h2 are usually chosen
+              strong  early
+            .unbrokenline
+          .step(data-bespoke-bullet)
+            h2 are
+              strong  hard to change
+              |  later
+            .unbrokenline
+
+    section(data-bespoke-state='')
+      .content
+        .byline
+          .classy Problem #1
+        h2 There are
+        h1
+          strong  A LOT
+        h2 of grid systems out there.
+        .unbrokenline
+
+    section(data-bespoke-state='')
+      .content
+        .byline
+          .classy Problem #2
+        h2 There's a lot more to it
+        .byline
+          .classy than
+        h2 breakpoints
+        .byline
+          .classy &
+        h2 column & gutter widths
+        .unbrokenline
+
+    section(data-bespoke-state='')
+      .content
+        .byline
+          .classy Let us
+        h2 explore how they differ
+        .byline
+          .classy and then
+        h2 look at one I built
+        .unbrokenline
+
+    section(data-bespoke-state='code')
+      .content
+        table
+          thead
+            tr
+              td Column width:
+              td Fixed width columns
+              td Multiple-width columns
+              td Fluid columns
+          tbody
+            tr
+              td
+              td No matter what
+              td A few distinct sizes
+              td Adapt to your browser display
+
+    section(data-bespoke-state='code')
+      .content
+        table
+          thead
+            tr
+              td No. columns:
+          tbody
+            tr
+              td Fixed # columns
+              td No matter what
+            tr
+              td Semi-fixed # columns
+              td Usually fixed + single column for mobile
+            tr
+              td Flexible # columns
+              td Num columns depends on width
+
+    section(data-bespoke-state='code')
+      .content
+        table
+          thead
+            tr
+              td
+              td Fixed width columns
+              td Multiple-width columns
+              td Fluid columns
+          tbody
+            tr
+              td Fixed # columns
+              td
+                a(href="http://960.gs/demo.html", target="_blank") 960.gs
+              td ?
+              td
+                a(href="http://purecss.io/grids/#grids-on-mobile", target="_blank") Pure.css
+            tr
+              td Semi-fixed # columns
+              td
+                a(href="http://www.getskeleton.com/", target="_blank") Skeleton
+              td
+                a(href="http://getbootstrap.com/2.3.2/scaffolding.html#gridSystem", target="_blank") Bootstrap 2.3
+              td
+                a(href="http://purecss.io/grids/#pure-responsive-grids", target="_blank") Pure Responsive
+            tr
+              td Flexible # columns
+              td
+                a(href="http://framelessgrid.com/", target="_blank") Frameless
+              td
+                a(href="http://getbootstrap.com/css/#grid", target="_blank") Bootstrap 3
+              td
+                a(href="http://goldengridsystem.com/", target="_blank") Golden Grid
+
+    section(data-bespoke-state='')
+      .content
+        .byline
+          .classy Alternate styles
+        .steps(data-bespoke-bullet)
+          h2(data-bespoke-bullet) • Class-based vs mixin-based
+          h2(data-bespoke-bullet) • Floats vs inline-block
+          h2(data-bespoke-bullet) • Spacers vs push/pulls
+          h2(data-bespoke-bullet) • Markup vs modules
+        .unbrokenline
+
+    section(data-bespoke-state='')
+      .content
+        .byline
+          .classy My example
+        .steps(data-bespoke-bullet)
+          h2(data-bespoke-bullet) • IE7+ support (no box-sizing)
+          h2(data-bespoke-bullet) • Class-based (no fancy preprocessor tricks)
+          h2(data-bespoke-bullet) • Floats & spacers
+          h2(data-bespoke-bullet) • Markup-heavy
+        .unbrokenline
+
+    section(data-bespoke-state='')
+      .content
+        h2 DEMO
+
+    section(data-bespoke-state='success')
+      .content
+        .unbrokenline
+        h1
+          strong Thank You!
+        .unbrokenline
+
+    section(data-bespoke-state='copter')
+      .content
+        .byline
+          .classy I have been
+        .me
+        h3
+          a(href='https://twitter.com/glenmaddern') @glenmaddern
+        h3
+          a(href='http://codename.io') team@codename.io
+        .unbrokenline
