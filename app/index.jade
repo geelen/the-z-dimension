@@ -270,7 +270,6 @@ block content
     section(data-bespoke-state='explode')
       .content
 
-
     section(data-bespoke-state='')
       .content
         .unbrokenline
@@ -294,6 +293,17 @@ block content
           |  it.
         .unbrokenline
 
+    section(data-bespoke-state='')
+      .content
+        .byline
+          .classy Now we can:
+        h2
+          strong  Measure
+          |  the browser and
+          strong  reason
+          |  about it.
+        .unbrokenline
+
     section(data-bespoke-state='code')
       .content
         .pre
@@ -306,11 +316,27 @@ block content
             | --enable-skia-benchmarking
             | --allow-webui-compositing
 
+    section(data-bespoke-state='kramer')
+      .content
+        .unbrokenline
+        h2 Layers
+        .unbrokenline
+
     section(data-bespoke-state='')
       .content
         .unbrokenline
-        h2 Browsers
-          strong  paint
+        h2 GPU
+        .unbrokenline
+
+    section(data-bespoke-state='')
+      .content
+        .byline
+          .classy What creates a layer?
+        h2 • CSS animations (for opacity & transforms)
+        h2 • 3D transforms & perspective
+        h2 • Video, Canvas or Plugin w/ GPU acceleration
+        h2 • CSS filters
+        h2 • A stacking context drawn on top of another layer
         .unbrokenline
 
     section(data-bespoke-state='')
