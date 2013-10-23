@@ -7,8 +7,9 @@ block content
         .byline
           .classy This talk is called:
         h1
-          | Rolling your own
-          strong  Grid
+          | The
+          strong  Z
+          |  dimension
         .byline
           .classy with this guy:
         .me
@@ -19,14 +20,89 @@ block content
 
     section(data-bespoke-state='')
       .content
+        .unbrokenline
+        h2 This talk is about
+          strong  browsers
+        .unbrokenline
+
+    section(data-bespoke-state='')
+      .content
+        .unbrokenline
+        h2 Browsers
+          strong  paint
+        .unbrokenline
+
+    section(data-bespoke-state='')
+      .content
+        .unbrokenline
+        h2 • Painter's algorithm
+        h2 • Back-to-front
+        h2 • Every element
+          strong  independently
+        h2 • There is no
+          strong  depth
+          |  only
+          strong  order
+        .unbrokenline
+
+    section(data-bespoke-state='code')
+      .content
+        h2 The Spec
+        iframe(src='http://www.w3.org/TR/CSS21/zindex.html')
+
+    section(data-bespoke-state='code')
+      .content.example
+        .code
+          pre.html
+            <div class="a">
+              A
+              <div class="c">C</div>
+              <div class="d">D</div>
+            </div>
+            <div class="b">B</div>
+        iframe(src='examples/ex1.html')
+
+    section(data-bespoke-state='')
+      .content
+        .unbrokenline
+        h2 Glen's
+          strong  pro-tip #1
+          |  for navigating the
+          strong  Z
+          |  dimension
         .byline
-          .classy Who am I?
-        .steps(data-bespoke-bullet)
-          h2(data-bespoke-bullet) • Hated the web (~2005)
-          h2(data-bespoke-bullet) • Yay maths! (~2008)
-          h2(data-bespoke-bullet) • Web, eh? (~2010)
-          h2(data-bespoke-bullet) • Startups, eh? (~2011)
-          h2(data-bespoke-bullet) • Front-end eh? (~2013)
+          .classy :
+        h2
+          strong box-shadow
+          |  ftw!
+        .unbrokenline
+
+    section(data-bespoke-state='code')
+      .content.example
+        .code
+          pre.css.added
+            div:hover, span:hover { box-shadow: 0 0 40px 40px black; }
+          pre.html
+            <div class="a">
+              A
+              <div class="c">C</div>
+              <div class="d">D</div>
+            </div>
+            <div class="b">B</div>
+        iframe(src='examples/ex1.html')
+
+    section(data-bespoke-state='')
+      .content
+        .unbrokenline
+        h2 Browsers
+          strong  paint
+        .unbrokenline
+
+    section(data-bespoke-state='')
+      .content
+        .unbrokenline
+        h2 Browsers
+          strong  paint
         .unbrokenline
 
     section(data-bespoke-state='')
