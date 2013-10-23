@@ -2,7 +2,7 @@ extends layout
 
 block content
   article.bespoke-parent
-    section(data-bespoke-state='japan')
+    section(data-bespoke-state='title')
       .content
         .byline
           .classy This talk is called:
@@ -35,19 +35,19 @@ block content
     section(data-bespoke-state='')
       .content
         .unbrokenline
-        h2 • Painter's algorithm
-        h2 • Back-to-front
-        h2 • Every element
-          strong  independently
-        h2 • There is no
-          strong  depth
-          |  only
-          strong  order
+        .steps
+          h2(data-bespoke-bullet) • Painter's algorithm
+          h2(data-bespoke-bullet) • Back-to-front
+          h2(data-bespoke-bullet) • Every element
+            strong  independently
+          h2(data-bespoke-bullet) • There is no
+            strong  depth
+            |  only
+            strong  order
         .unbrokenline
 
     section(data-bespoke-state='code')
-      .content
-        h2 The Spec
+      .content.iframe-holster
         iframe(src='http://www.w3.org/TR/CSS21/zindex.html')
 
     section(data-bespoke-state='code')
@@ -61,7 +61,7 @@ block content
               |   <div class="d">D</div>
               | </div>
               | <div class="b">B</div>
-        iframe(src='examples/ex1.html')
+        iframe(src='examples/ex0.html')
 
     section(data-bespoke-state='')
       .content
@@ -72,7 +72,7 @@ block content
           strong  Z
           |  dimension
         .byline
-          .classy :
+          .classy =
         h2
           strong box-shadow
           |  ftw!
@@ -206,8 +206,8 @@ block content
 
     section(data-bespoke-state='')
       .content
+        h2 Drawn back-to-front:
         .unbrokenline
-        h2 Drawn back-to-front
         h2 • Positioned + negative z-index
         h2 • Block elements
         h2 • Floated elements
@@ -222,7 +222,17 @@ block content
 
     section(data-bespoke-state='kramer')
       .content
-        h2 Stacking contexts
+        h2
+          strong Stacking contexts
+
+    section(data-bespoke-state='')
+      .content
+        h2 Stacking contexts:
+        .unbrokenline
+        h2.left • Encapsulates an element & its children
+        h2.left • Seems to 'flatten' an element
+        h2.left • Element & children drawn together
+        .unbrokenline
 
     section(data-bespoke-state='code')
       .content.example
@@ -272,8 +282,8 @@ block content
 
     section(data-bespoke-state='')
       .content
+        h2 Stacking contexts:
         .unbrokenline
-        h2 Stacking contexts
         h2 • Opacity < 1
         h2 • Position: fixed (Chrome & Mobiles)
         h2 • Position: !static && z-index: !auto
