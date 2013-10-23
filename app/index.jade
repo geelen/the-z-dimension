@@ -131,7 +131,7 @@ block content
       .content.example
         .code
           .pre.css.added
-            pre .floated { padding: 10px; background-color: hsl(135,80%,80%); float: left; }
+            pre .floated { float: left; }
           .pre.html
             pre
               | <div class="a">
@@ -149,7 +149,7 @@ block content
       .content.example
         .code
           .pre.css.added
-            pre .positioned { background-color: hsl(225,80%,80%); position: relative; z-index: 0; }
+            pre .positioned { position: relative; z-index: 0; }
           .pre.html
             pre
               | <div class="a">
@@ -168,7 +168,7 @@ block content
       .content.example
         .code
           .pre.css.added
-            pre .negative { position: absolute; z-index: -1; padding: 40px; top: 160px; right: 20px; background-color: hsl(315,80%,80%); }
+            pre .negative { position: absolute; z-index: -1; top: 160px; right: 20px; }
           .pre.html
             pre
               | <div class="a">
@@ -188,7 +188,7 @@ block content
       .content.example
         .code
           .pre.css.added
-            pre .positive { position: absolute; z-index: 1; padding: 40px; top: 20px; right: 20px; background-color: blue; }
+            pre .positive { position: absolute; z-index: 1; top: 20px; right: 20px; }
           .pre.html
             .added
               pre <div class="positive">POSITIVE</div>
@@ -227,8 +227,29 @@ block content
     section(data-bespoke-state='code')
       .content.example
         .code
-          .pre.css.added
-            pre .a { position: relative; z-index: 0; }
+          .pre.css
+            pre .negative { position: absolute; z-index: -1; top: 160px; right: 20px; }
+          .pre.html
+            pre
+              | <div class="positive">POSITIVE</div>
+              | <div class="a">
+              |   A
+              |   <div class="c">C</div>
+              |   <div class="floated">FLOATED</div>
+              |   <div class="positioned">POSITIONED</div>
+              |   <div class="d"><span>INLINE</span></div>
+              |   <div class="negative">NEGATIVE</div>
+              | </div>
+              | <div class="b">B</div>
+        iframe(src='examples/ex7.html')
+
+    section(data-bespoke-state='code')
+      .content.example
+        .code
+          .pre.css
+            pre .negative { position: absolute; z-index: -1; top: 160px; right: 20px; }
+            .added
+              pre .a { position: relative; z-index: 0; }
           .pre.html
             pre <div class="positive">POSITIVE</div>
             strong
@@ -240,7 +261,7 @@ block content
               |   <div class="positioned">POSITIONED</div>
               |   <div class="d"><span>INLINE</span></div>
             strong
-              pre <div class="negative">NEGATIVE</div>
+              pre   <div class="negative">NEGATIVE</div>
             pre
               | </div>
               | <div class="b">B</div>
