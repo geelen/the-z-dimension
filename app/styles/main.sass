@@ -158,31 +158,51 @@ section
       height: calc(66% - 72px)
       +transform(translateZ(0px) scale(1.5) rotateY(4deg))
 
+    iframe
+      background-color: white
+      display: block
+      position: absolute
+      border: none
+      height: calc(100% - 48px)
+      width: 100%
+      bottom: 0
+      left: 0
+      box-shadow: 0 0 0px 8px white, 0 0 0px 9px rgba(black, 0.1), 10px 10px 20px 3px rgba(black, 0.2), -10px 10px 20px 3px rgba(black, 0.2)
+
   &.bespoke-inactive .iframe-holster
     +transform(translateZ(-200px) scale(1) rotateY(10deg))
 
+.content.example
+  display: flex
+  .code
+    font-size: 0.9em
+    -webkit-flex: 1.5
   iframe
-    background-color: white
-    display: block
-    position: absolute
-    border: none
-    height: calc(100% - 48px)
-    width: 100%
-    bottom: 0
-    left: 0
-    box-shadow: 0 0 0px 8px white, 0 0 0px 9px rgba(black, 0.1), 10px 10px 20px 3px rgba(black, 0.2), -10px 10px 20px 3px rgba(black, 0.2)
+    background: white
+    -webkit-flex: 1
 
-
-pre, code
+.pre, code
   font-family: source-code-pro, 'Monaco', courier, monospace
   font-size: 1.2em
   font-weight: 400
   text-align: left
 
-pre
+.pre
   position: relative
   box-shadow: 0 0 1px 0 rgba(black, 1), 0 0 0px 8px white, 0 0 0px 9px rgba(black, 0.1), 10px 10px 20px 3px rgba(black, 0.2), -10px 10px 20px 3px rgba(black, 0.2)
   margin: 30px
+  padding: 10px
+  background: #fdf6e3
+
+pre
+  padding: 0
+  margin: 0
+
+.added pre
+  font-weight: bold
+  color: green
+  &::before
+    content: '+ '
 
 .bespoke-bullet
   opacity: 1 !important
