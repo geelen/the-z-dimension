@@ -168,7 +168,7 @@ block content
       .content.example
         .code
           .pre.css.added
-            pre .negative { position: absolute; z-index: -1; top: 160px; right: 20px; }
+            pre .negative { position: absolute; z-index: -1; top: 250px; right: 20px; }
           .pre.html
             pre
               | <div class="a">
@@ -228,7 +228,7 @@ block content
       .content.example
         .code
           .pre.css
-            pre .negative { position: absolute; z-index: -1; top: 160px; right: 20px; }
+            pre .negative { position: absolute; z-index: -1; top: 250px; right: 20px; }
           .pre.html
             pre
               | <div class="positive">POSITIVE</div>
@@ -244,10 +244,10 @@ block content
         iframe(src='examples/ex7.html')
 
     section(data-bespoke-state='code')
-      .content.example
+      .content.example.nofade
         .code
           .pre.css
-            pre .negative { position: absolute; z-index: -1; top: 160px; right: 20px; }
+            pre .negative { position: absolute; z-index: -1; top: 250px; right: 20px; }
             .added
               pre .a { position: relative; z-index: 0; }
           .pre.html
@@ -267,6 +267,10 @@ block content
               | <div class="b">B</div>
         iframe(src='examples/ex8.html')
 
+    section(data-bespoke-state='explode')
+      .content
+
+
     section(data-bespoke-state='')
       .content
         .unbrokenline
@@ -281,10 +285,26 @@ block content
 
     section(data-bespoke-state='')
       .content
+        .byline
+          .classy Old option:
+        h2
+          strong  Learn
+          |  the theory and
+          strong  apply
+          |  it.
         .unbrokenline
-        h2 Browsers
-          strong  paint
-        .unbrokenline
+
+    section(data-bespoke-state='code')
+      .content
+        .pre
+          strong
+            pre Google Chrome Canary:
+          pre
+            | --enable-threaded-compositing
+            | --force-compositing-mode
+            | --enable-impl-side-painting
+            | --enable-skia-benchmarking
+            | --allow-webui-compositing
 
     section(data-bespoke-state='')
       .content
