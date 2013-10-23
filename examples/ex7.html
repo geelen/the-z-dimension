@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Flat</title>
-  <link rel="stylesheet" href="/bower_components/normalize-css/normalize.css">
+  <link rel="stylesheet" href="/app/components/normalize-css/normalize.css">
   <style>
     .a, .b, .c, .d { padding: 10px; margin: 4px; }
     .a { background-color: hsl(0,80%,80%); }
@@ -13,22 +13,22 @@
     div:hover, span:hover { box-shadow: 0 0 40px 40px black; }
     html { color: red; }
     span { background-color: hsl(45,80%,80%); }
-    .e { padding: 10px; background-color: hsl(135,80%,80%); float: left; }
-    .f { background-color: hsl(225,80%,80%); position: relative; z-index: 0; }
-    .g { position: absolute; z-index: -1; padding: 40px; top: 160px; right: 20px; background-color: hsl(315,80%,80%); }
-    .h { position: absolute; z-index: 1; padding: 40px; top: 20px; right: 20px; background-color: blue; }
+    .floated { padding: 10px; background-color: hsl(135,80%,80%); float: left; }
+    .positioned { background-color: hsl(225,80%,80%); position: relative; z-index: 0; }
+    .negative { position: absolute; z-index: -1; padding: 40px; top: 160px; right: 20px; background-color: hsl(315,80%,80%); }
+    .positive { position: absolute; z-index: 1; padding: 40px; top: 20px; right: 20px; background-color: blue; }
   </style>
 </head>
 <body>
-  <div class="h">POSITIVE</div>
+  <div class="positive">POSITIVE</div>
   <div class="a">A
     <div class="c">C</div>
-    <div class="e">FLOATED</div>
-    <div class="f">POSITIONED</div>
+    <div class="floated">FLOATED</div>
+    <div class="positioned">POSITIONED</div>
     <div class="d">
       <span>INLINE</span>
     </div>
-    <div class="g">NEGATIVE</div>
+    <div class="negative">NEGATIVE</div>
   </div>
   <div class="b">
     B

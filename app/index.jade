@@ -54,12 +54,12 @@ block content
       .content.example
         .code
           pre.html
-            <div class="a">
-              A
-              <div class="c">C</div>
-              <div class="d">D</div>
-            </div>
-            <div class="b">B</div>
+            | <div class="a">
+            |   A
+            |   <div class="c">C</div>
+            |   <div class="d">D</div>
+            | </div>
+            | <div class="b">B</div>
         iframe(src='examples/ex1.html')
 
     section(data-bespoke-state='')
@@ -81,15 +81,149 @@ block content
       .content.example
         .code
           pre.css.added
-            div:hover, span:hover { box-shadow: 0 0 40px 40px black; }
+            | div:hover, span:hover { box-shadow: 0 0 40px 40px black; }
           pre.html
-            <div class="a">
-              A
-              <div class="c">C</div>
-              <div class="d">D</div>
-            </div>
-            <div class="b">B</div>
+            | <div class="a">
+            |   A
+            |   <div class="c">C</div>
+            |   <div class="d">D</div>
+            | </div>
+            | <div class="b">B</div>
         iframe(src='examples/ex1.html')
+
+    section(data-bespoke-state='code')
+      .content.example
+        .code
+          pre.css.added
+            | html { color: red; }
+          pre.html
+            | <div class="a">
+            |   A
+            |   <div class="c">C</div>
+            |   <div class="d">D</div>
+            | </div>
+            | <div class="b">B</div>
+        iframe(src='examples/ex2.html')
+
+    section(data-bespoke-state='code')
+      .content.example
+        .code
+          pre.css.added
+            | span { background-color: hsl(45,80%,80%); }
+          pre.html
+            | <div class="a">
+            |   A
+            |   <div class="c">C</div>
+            |   <div class="d">
+            span.added  <span>INLINE</span>
+            |   </div>
+            | </div>
+            | <div class="b">B</div>
+        iframe(src='examples/ex3.html')
+
+    section(data-bespoke-state='code')
+      .content.example
+        .code
+          pre.css.added
+            | .floated { padding: 10px; background-color: hsl(135,80%,80%); float: left; }
+          pre.html
+            | <div class="a">
+            |   A
+            |   <div class="c">C</div>
+            span.added   <div class="floated">FLOATED</div>
+            |   <div class="d"><span>INLINE</span></div>
+            | </div>
+            | <div class="b">B</div>
+        iframe(src='examples/ex4.html')
+
+    section(data-bespoke-state='code')
+      .content.example
+        .code
+          pre.css.added
+            | .positioned { background-color: hsl(225,80%,80%); position: relative; z-index: 0; }
+          pre.html
+            | <div class="a">
+            |   A
+            |   <div class="c">C</div>
+            |   <div class="floated">FLOATED</div>
+            span.added       <div class="positioned">POSITIONED</div>
+            |   <div class="d"><span>INLINE</span></div>
+            | </div>
+            | <div class="b">B</div>
+        iframe(src='examples/ex5.html')
+
+    section(data-bespoke-state='code')
+      .content.example
+        .code
+          pre.css.added
+            | .negative { position: absolute; z-index: -1; padding: 40px; top: 160px; right: 20px; background-color: hsl(315,80%,80%); }
+          pre.html
+            | <div class="a">
+            |   A
+            |   <div class="c">C</div>
+            |   <div class="floated">FLOATED</div>
+            |   <div class="positioned">POSITIONED</div>
+            |   <div class="d"><span>INLINE</span></div>
+            span.added     <div class="negative">NEGATIVE</div>
+            | </div>
+            | <div class="b">B</div>
+        iframe(src='examples/ex6.html')
+
+    section(data-bespoke-state='code')
+      .content.example
+        .code
+          pre.css.added
+            | .positive { position: absolute; z-index: 1; padding: 40px; top: 20px; right: 20px; background-color: blue; }
+          pre.html
+            span.added <div class="positive">POSITIVE</div>
+            | <div class="a">
+            |   A
+            |   <div class="c">C</div>
+            |   <div class="floated">FLOATED</div>
+            |   <div class="positioned">POSITIONED</div>
+            |   <div class="d"><span>INLINE</span></div>
+            |   <div class="negative">NEGATIVE</div>
+            | </div>
+            | <div class="b">B</div>
+        iframe(src='examples/ex7.html')
+
+    section(data-bespoke-state='')
+      .content
+        .unbrokenline
+        h2 Drawn back-to-front
+        h2 • Positioned + negative z-index
+        h2 • Block elements
+        h2 • Floated elements
+        h2 • Inline elements
+        h2 • Positioned + z-index auto,0
+        h2 • Positioned + z-index > 0
+        .unbrokenline
+
+    section(data-bespoke-state='css')
+      .content
+        h2 CSS
+
+    section(data-bespoke-state='kramer')
+      .content
+        h2 Stacking contexts
+
+    section(data-bespoke-state='code')
+      .content.example
+        .code
+          pre.css.added
+            | .a { position: relative; z-index: 0; }
+          pre.html
+            | <div class="positive">POSITIVE</div>
+            strong <div class="a">
+            |   A
+            |   <div class="c">C</div>
+            |   <div class="floated">FLOATED</div>
+            |   <div class="positioned">POSITIONED</div>
+            |   <div class="d"><span>INLINE</span></div>
+            strong   <div class="negative">NEGATIVE</div>
+            | </div>
+            | <div class="b">B</div>
+        iframe(src='examples/ex8.html')
 
     section(data-bespoke-state='')
       .content
