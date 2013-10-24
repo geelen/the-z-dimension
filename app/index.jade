@@ -63,7 +63,7 @@ block content
               | <div class="b">B</div>
         iframe(src='examples/ex0.html')
 
-    section(data-bespoke-state='')
+    section(data-bespoke-state='protip')
       .content
         .unbrokenline
         h2 Glen's
@@ -172,7 +172,10 @@ block content
       .content.example
         .code
           .pre.css.added
-            pre .neg { position: absolute; z-index: -1; top: 250px; right: 20px; }
+            pre
+              | .neg {
+              | position: absolute; z-index: -1;
+              | top: 250px; right: 20px; }
           .pre.html
             pre
               | <div class="a">
@@ -194,7 +197,10 @@ block content
       .content.example
         .code
           .pre.css.added
-            pre .pve { position: absolute; z-index: 1; top: 20px; right: 20px; }
+            pre
+              | .pve {
+              | position: absolute; z-index: 1;
+              | top: 20px; right: 20px; }
           .pre.html
             .added
               pre <div class="pve">POSITIVE</div>
@@ -212,6 +218,10 @@ block content
               | <div class="b">B</div>
         iframe(src='examples/ex7.html')
 
+    section(data-bespoke-state='css')
+      .content
+        h2 CSS
+
     section(data-bespoke-state='')
       .content
         h2 Drawn back-to-front:
@@ -223,10 +233,6 @@ block content
         h2 • Positioned + z-index auto,0
         h2 • Positioned + z-index > 0
         .unbrokenline
-
-    section(data-bespoke-state='css')
-      .content
-        h2 CSS
 
     section(data-bespoke-state='kramer')
       .content
@@ -246,11 +252,15 @@ block content
       .content.example
         .code
           .pre.css
-            pre .neg { position: absolute; z-index: -1; top: 250px; right: 20px; }
+            pre
+              | .a { position: relative;
+              |      z-index: auto; }
           .pre.html
             pre
               | <div class="pve">POSITIVE</div>
-              | <div class="a">
+            strong
+              pre <div class="a">
+            pre
               |   A
               |   <div class="c">C</div>
               |   <div class="fl">FLOATED</div>
@@ -258,8 +268,11 @@ block content
               |   <div class="d">
               |     <span>INLINE</span>
               |   </div>
-              |   <div class="neg">NEGATIVE</div>
-              | </div>
+            strong
+              pre
+                |   <div class="neg">NEGATIVE</div>
+                | </div>
+            pre
               | <div class="b">B</div>
         iframe(src='examples/ex7.html')
 
@@ -267,9 +280,10 @@ block content
       .content.example.nofade
         .code
           .pre.css
-            pre .neg { position: absolute; z-index: -1; top: 250px; right: 20px; }
+            pre
+              | .a { position: relative;
             .added
-              pre .a { position: relative; z-index: 0; }
+              pre    z-index: 0; }
           .pre.html
             pre <div class="pve">POSITIVE</div>
             strong
@@ -283,9 +297,10 @@ block content
               |     <span>INLINE</span>
               |   </div>
             strong
-              pre   <div class="neg">NEGATIVE</div>
+              pre
+                |   <div class="neg">NEGATIVE</div>
+                | </div>
             pre
-              | </div>
               | <div class="b">B</div>
         iframe(src='examples/ex8.html')
 
@@ -296,12 +311,12 @@ block content
       .content
         h2 Stacking contexts:
         .unbrokenline
-        h2 • Opacity < 1
-        h2 • Position: fixed (Chrome & Mobiles)
-        h2 • Position: !static && z-index: !auto
-        h2 • -webkit-transform
-        h2 • -webkit-filter
-        h2 • CSS regions & pages
+        h2.left • Opacity < 1
+        h2.left • Position: fixed (Chrome & Mobiles)
+        h2.left • Position: !static && z-index: !auto
+        h2.left • -webkit-transform
+        h2.left • -webkit-filter
+        h2.left • CSS regions & pages
         .unbrokenline
 
     section(data-bespoke-state='')
@@ -326,8 +341,18 @@ block content
           |  about it.
         .unbrokenline
 
+    section(data-bespoke-state='chrome')
+      .content
+        .unbrokenline
+        h2
+          strong Chrome
+          |  is
+          strong  amazing
+        .unbrokenline
+
     section(data-bespoke-state='code')
       .content
+        h2 DEMO #1
         .pre
           strong
             pre Google Chrome Canary:
@@ -348,27 +373,43 @@ block content
       .content
         .byline
           .classy Layers:
-        h2 • Drawn separately by the GPU
-        h2 • Like a 'super' stacking context
-        h2 • Big performance implications
-        h2 • Up to the browser
+        h2.left • Drawn separately by the GPU
+        h2.left • Like a 'super' stacking context
+        h2.left • Big performance implications
+        h2.left • Up to the browser
         .unbrokenline
 
-    section(data-bespoke-state='')
+    section(data-bespoke-state='chrome')
       .content
         .unbrokenline
         h2
+          strong DEMO #2
         .unbrokenline
 
     section(data-bespoke-state='')
       .content
         .byline
           .classy What creates a layer?
-        h2 • CSS animations (for opacity & transforms)
-        h2 • 3D transforms & perspective
-        h2 • Video, Canvas or Plugin w/ GPU acceleration
-        h2 • CSS filters
-        h2 • A stacking context drawn on top of another layer
+        h2.left • CSS animations (for opacity & transforms)
+        h2.left • 3D transforms & perspective
+        h2.left • Video, Canvas or Plugin w/ GPU acceleration
+        h2.left • CSS filters
+        h2.left • A stacking context drawn on top of another layer
+        .unbrokenline
+
+    section(data-bespoke-state='')
+      .content
+        .unbrokenline
+        h2 Tooling is getting
+          strong  much
+          |  better
+        .unbrokenline
+
+    section(data-bespoke-state='chrome')
+      .content
+        .unbrokenline
+        h2
+          strong DEMO #3
         .unbrokenline
 
     section(data-bespoke-state='success')

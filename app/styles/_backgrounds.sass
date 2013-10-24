@@ -32,6 +32,16 @@ article
   // use ::before for gifs (small size, scaled up)
   &.copter::before
     background-image: url(http://i.imgur.com/vnkglbw.gif)
+  &.protip::before
+    +filter(contrast(0.8) brightness(0.6 * $brightnessFactor))
+    background-image: url('/images/bill.gif')
+    background-position: 50% 0%
+  &.explode::before
+    +filter(contrast(1.0) brightness(0.8 * $brightnessFactor))
+    background-image: url('/images/MindBlown.gif')
+    //background-position: 50% 50%
+  &.css::before
+    background-image: url('/images/family-guy-window-blinds.gif')
   &.title::before
     +filter(contrast(0.7) brightness(0.5 * $brightnessFactor))
     background-image: url('/images/Sydney.gif')
@@ -51,10 +61,13 @@ article
   //  background-image: url('http://images.wikia.com/nickfanon/images/f/f3/Troll_cat_gif_(1).gif')
 
   // use ::after for images (full size, cover)
-  //&.yeoman::after
-  //  +filter(grayscale(0.6) contrast(0.9) brightness(0.3 * $brightnessFactor))
-  //  background-image: url('http://yeoman.io/assets/img/yeoman-005.png')
-  //  background-position: 50% 40%
+  &.chrome
+    background-color: darken(white, 60%)
+    &::after
+      background-image: url('/images/chrome.jpg')
+      background-position: 50% 10%
+      width: 60%
+      left: 20%
 
   // neither for solid colours
   &.code, &.iframe
