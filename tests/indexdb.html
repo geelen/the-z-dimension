@@ -1,0 +1,29 @@
+<html>
+<head></head>
+<body>
+
+<script src="lib/db.js"></script>
+<script>
+  db.open({
+    server: 'demGifs',
+    version: 1,
+    schema: {
+      gifs: {
+        key: { keyPath: 'id', autoIncrement: true },
+        // Optionally add indexes
+        indexes: {
+          url: { unique: true }
+        }
+      }
+    }}).done(function (s) {
+      var server = s;
+      server.gifs.query('indexName')
+        .only('url', 'lol.gif')
+        .execute()
+        .done(function (results) {
+          console.log(results);
+        });
+    });
+</script>
+</body>
+</html>
