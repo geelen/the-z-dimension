@@ -1,0 +1,85 @@
+<!DOCTYPE html><!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]--><!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]--><!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]--><!--[if gt IE 8]><!--><html lang="en" class="no-js wf-loading"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title></title><meta name="description" content=""><meta name="viewport" content="width=device-width"><link rel="stylesheet" href="components/normalize-css/normalize.css"><!-- Place favicon.ico and apple-touch-icon.png in the root directory--><!-- build:css styles/main.css--><link rel="stylesheet" href="styles/solarized-light.css"><link rel="stylesheet" href="styles/main.css"><!-- endbuild--><script src="components/modernizr/modernizr.js"></script></head><body><!--[if lt IE 7]><p class="chromeframe">You are using an outdated browser.<a href="http://browsehappy.com/">Upgrade your browser today</a>or<a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a>to better experience this site.</p><![endif]--><!--[if lt IE 9]><script src="components/es5-shim/es5-shim.js"></script><script src="components/json3/lib/json3.min.js"></script><![endif]--><article class="bespoke-parent"><section data-bespoke-state="title"><div class="content"><div class="byline"><div class="classy">This talk is called:</div></div><h1>The<strong> Z</strong> dimension</h1><div class="byline"><div class="classy">with this guy:</div></div><div class="me"></div><div class="byline"><a href="http://codename.io">http://codename.io</a><a href="https://twitter.com/glenmaddern">@glenmaddern</a><a href="http://github.com/geelen">geelen</a></div></div></section><section data-bespoke-state=""><div class="content"><div class="unbrokenline"></div><h2>This talk is about<strong> browsers</strong></h2><div class="unbrokenline"></div></div></section><section data-bespoke-state="painting"><div class="content"><div class="unbrokenline"></div><h2>Browsers<strong> paint</strong></h2><div class="unbrokenline"></div></div></section><section data-bespoke-state="painting"><div class="content"><div class="unbrokenline"></div><div class="steps"><h2 data-bespoke-bullet>• Painter's algorithm</h2><h2 data-bespoke-bullet>• Back-to-front</h2><h2 data-bespoke-bullet>• Every element<strong> independently</strong></h2><h2 data-bespoke-bullet>• There is no<strong> depth</strong> only<strong> order</strong></h2></div><div class="unbrokenline"></div></div></section><section data-bespoke-state="code"><div class="content iframe-holster"><iframe src="http://www.w3.org/TR/CSS21/zindex.html"></iframe></div></section><section data-bespoke-state="code"><div class="content example"><div class="code"><div class="pre html"><pre>&lt;div class=&quot;a&quot;&gt;
+  A
+  &lt;div class=&quot;c&quot;&gt;C&lt;/div&gt;
+  &lt;div class=&quot;d&quot;&gt;D&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;b&quot;&gt;B&lt;/div&gt;</pre></div></div><iframe src="examples/ex0.html"></iframe></div></section><section data-bespoke-state="protip"><div class="content"><div class="unbrokenline"></div><h2>Glen's<strong> pro-tip #1</strong> for navigating the<strong> Z</strong> dimension</h2><div class="byline"><div class="classy">=</div></div><h2><strong>box-shadow</strong> ftw!</h2><div class="unbrokenline"></div></div></section><section data-bespoke-state="code"><div class="content example"><div class="code"><div class="pre css added"><pre>div:hover, span:hover { box-shadow: 0 0 40px 40px black; }</pre></div><div class="pre html"><pre>&lt;div class=&quot;a&quot;&gt;
+  A
+  &lt;div class=&quot;c&quot;&gt;C&lt;/div&gt;
+  &lt;div class=&quot;d&quot;&gt;D&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;b&quot;&gt;B&lt;/div&gt;</pre></div></div><iframe src="examples/ex1.html"></iframe></div></section><section data-bespoke-state="code"><div class="content example"><div class="code"><div class="pre css added"><pre>html { color: red; }</pre></div><div class="pre html"><pre>&lt;div class=&quot;a&quot;&gt;
+  A
+  &lt;div class=&quot;c&quot;&gt;C&lt;/div&gt;
+  &lt;div class=&quot;d&quot;&gt;D&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;b&quot;&gt;B&lt;/div&gt;</pre></div></div><iframe src="examples/ex2.html"></iframe></div></section><section data-bespoke-state="code"><div class="content example"><div class="code"><div class="pre css added"><pre>span { background-color: hsl(45,80%,80%); }</pre></div><div class="pre html"><pre>&lt;div class=&quot;a&quot;&gt;
+  A
+  &lt;div class=&quot;c&quot;&gt;C&lt;/div&gt;
+  &lt;div class=&quot;d&quot;&gt;</pre><div class="added"><pre>  &lt;span&gt;INLINE&lt;/span&gt;</pre></div><pre>  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;b&quot;&gt;B&lt;/div&gt;</pre></div></div><iframe src="examples/ex3.html"></iframe></div></section><section data-bespoke-state="code"><div class="content example"><div class="code"><div class="pre css added"><pre>.fl { float: left; }</pre></div><div class="pre html"><pre>&lt;div class=&quot;a&quot;&gt;
+  A
+  &lt;div class=&quot;c&quot;&gt;C&lt;/div&gt;</pre><div class="added"><pre>&lt;div class=&quot;fl&quot;&gt;FLOATED&lt;/div&gt;</pre></div><pre>  &lt;div class=&quot;d&quot;&gt;
+    &lt;span&gt;INLINE&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;b&quot;&gt;B&lt;/div&gt;</pre></div></div><iframe src="examples/ex4.html"></iframe></div></section><section data-bespoke-state="code"><div class="content example"><div class="code"><div class="pre css added"><pre>.pos { position: relative; }</pre></div><div class="pre html"><pre>&lt;div class=&quot;a&quot;&gt;
+  A
+  &lt;div class=&quot;c&quot;&gt;C&lt;/div&gt;
+  &lt;div class=&quot;fl&quot;&gt;FLOATED&lt;/div&gt;</pre><div class="added"><pre>&lt;div class=&quot;pos&quot;&gt;POSITIONED&lt;/div&gt;</pre></div><pre>  &lt;div class=&quot;d&quot;&gt;
+    &lt;span&gt;INLINE&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;b&quot;&gt;B&lt;/div&gt;</pre></div></div><iframe src="examples/ex5.html"></iframe></div></section><section data-bespoke-state="code"><div class="content example"><div class="code"><div class="pre css added"><pre>.neg {
+position: absolute; z-index: -1;
+top: 250px; right: 20px; }</pre></div><div class="pre html"><pre>&lt;div class=&quot;a&quot;&gt;
+  A
+  &lt;div class=&quot;c&quot;&gt;C&lt;/div&gt;
+  &lt;div class=&quot;fl&quot;&gt;FLOATED&lt;/div&gt;
+  &lt;div class=&quot;pos&quot;&gt;POSITIONED&lt;/div&gt;
+  &lt;div class=&quot;d&quot;&gt;
+    &lt;span&gt;INLINE&lt;/span&gt;
+  &lt;/div&gt;</pre><div class="added"><pre>&lt;div class=&quot;neg&quot;&gt;NEGATIVE&lt;/div&gt;</pre></div><pre>&lt;/div&gt;
+&lt;div class=&quot;b&quot;&gt;B&lt;/div&gt;</pre></div></div><iframe src="examples/ex6.html"></iframe></div></section><section data-bespoke-state="code"><div class="content example"><div class="code"><div class="pre css added"><pre>.pve {
+position: absolute; z-index: 1;
+top: 20px; right: 20px; }</pre></div><div class="pre html"><div class="added"><pre>&lt;div class=&quot;pve&quot;&gt;POSITIVE&lt;/div&gt;</pre></div><pre>&lt;div class=&quot;a&quot;&gt;
+  A
+  &lt;div class=&quot;c&quot;&gt;C&lt;/div&gt;
+  &lt;div class=&quot;fl&quot;&gt;FLOATED&lt;/div&gt;
+  &lt;div class=&quot;pos&quot;&gt;POSITIONED&lt;/div&gt;
+  &lt;div class=&quot;d&quot;&gt;
+    &lt;span&gt;INLINE&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;neg&quot;&gt;NEGATIVE&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;b&quot;&gt;B&lt;/div&gt;</pre></div></div><iframe src="examples/ex7.html"></iframe></div></section><section data-bespoke-state="css"><div class="content"><h2><strong>CSS</strong></h2></div></section><section data-bespoke-state=""><div class="content"><h2>Drawn back-to-front:</h2><div class="unbrokenline"></div><h2>• Positioned + neg z-index</h2><h2>• Block elements</h2><h2>• Floated elements</h2><h2>• Inline elements</h2><h2>• Positioned + z-index auto,0</h2><h2>• Positioned + z-index > 0</h2><div class="unbrokenline"></div></div></section><section data-bespoke-state="kramer"><div class="content"><h2><strong>Stacking contexts</strong></h2></div></section><section data-bespoke-state=""><div class="content"><h2>Stacking contexts:</h2><div class="unbrokenline"></div><h2 class="left">• Encapsulates an element & its children</h2><h2 class="left">• Seems to 'flatten' an element</h2><h2 class="left">• Element & children drawn together</h2><div class="unbrokenline"></div></div></section><section data-bespoke-state="code"><div class="content example"><div class="code"><div class="pre css"><pre>.a { position: relative;
+     z-index: auto; }</pre></div><div class="pre html"><pre>&lt;div class=&quot;pve&quot;&gt;POSITIVE&lt;/div&gt;</pre><strong><pre>&lt;div class=&quot;a&quot;&gt;</pre></strong><pre>  A
+  &lt;div class=&quot;c&quot;&gt;C&lt;/div&gt;
+  &lt;div class=&quot;fl&quot;&gt;FLOATED&lt;/div&gt;
+  &lt;div class=&quot;pos&quot;&gt;POSITIONED&lt;/div&gt;
+  &lt;div class=&quot;d&quot;&gt;
+    &lt;span&gt;INLINE&lt;/span&gt;
+  &lt;/div&gt;</pre><strong><pre>  &lt;div class=&quot;neg&quot;&gt;NEGATIVE&lt;/div&gt;
+&lt;/div&gt;</pre></strong><pre>&lt;div class=&quot;b&quot;&gt;B&lt;/div&gt;</pre></div></div><iframe src="examples/ex7.html"></iframe></div></section><section data-bespoke-state="code"><div class="content example nofade"><div class="code"><div class="pre css"><pre>.a { position: relative;</pre><div class="added"><pre>   z-index: 0; }</pre></div></div><div class="pre html"><pre>&lt;div class=&quot;pve&quot;&gt;POSITIVE&lt;/div&gt;</pre><strong><pre>&lt;div class=&quot;a&quot;&gt;</pre></strong><pre>  A
+  &lt;div class=&quot;c&quot;&gt;C&lt;/div&gt;
+  &lt;div class=&quot;fl&quot;&gt;FLOATED&lt;/div&gt;
+  &lt;div class=&quot;pos&quot;&gt;POSITIONED&lt;/div&gt;
+  &lt;div class=&quot;d&quot;&gt;
+    &lt;span&gt;INLINE&lt;/span&gt;
+  &lt;/div&gt;</pre><strong><pre>  &lt;div class=&quot;neg&quot;&gt;NEGATIVE&lt;/div&gt;
+&lt;/div&gt;</pre></strong><pre>&lt;div class=&quot;b&quot;&gt;B&lt;/div&gt;</pre></div></div><iframe src="examples/ex8.html"></iframe></div></section><section data-bespoke-state="explode"><div class="content"></div></section><section data-bespoke-state=""><div class="content"><h2>Stacking contexts:</h2><div class="unbrokenline"></div><h2 class="left">• Opacity < 1</h2><h2 class="left">• Position: fixed (Chrome & Mobiles)</h2><h2 class="left">• Position: !static && z-index: !auto</h2><h2 class="left">• -webkit-transform</h2><h2 class="left">• -webkit-filter</h2><h2 class="left">• CSS regions & pages</h2><div class="unbrokenline"></div></div></section><section data-bespoke-state=""><div class="content"><div class="byline"><div class="classy">Old option:</div></div><h2><strong> Learn</strong> the theory and<strong> apply</strong> it.</h2><div class="unbrokenline"></div></div></section><section data-bespoke-state=""><div class="content"><div class="byline"><div class="classy">Now we can:</div></div><h2><strong> Measure</strong> the browser and<strong> reason</strong> about it.</h2><div class="unbrokenline"></div></div></section><section data-bespoke-state="chrome"><div class="content"><div class="unbrokenline"></div><h2><strong>Chrome</strong> is<strong> amazing</strong></h2><div class="unbrokenline"></div></div></section><section data-bespoke-state="code"><div class="content"><h2>DEMO #1</h2><div class="pre"><strong><pre>Google Chrome Canary:</pre></strong><pre>--enable-threaded-compositing
+--force-compositing-mode
+--enable-impl-side-painting
+--enable-skia-benchmarking
+--allow-webui-compositing</pre></div></div></section><section data-bespoke-state="kramer"><div class="content"><div class="unbrokenline"></div><h2>Layers</h2><div class="unbrokenline"></div></div></section><section data-bespoke-state=""><div class="content"><div class="byline"><div class="classy">Layers:</div></div><h2 class="left">• Drawn separately by the GPU</h2><h2 class="left">• Like a 'super' stacking context</h2><h2 class="left">• Big performance implications</h2><h2 class="left">• Up to the browser</h2><div class="unbrokenline"></div></div></section><section data-bespoke-state="chrome"><div class="content"><div class="unbrokenline"></div><h2><strong>DEMO #2</strong></h2><div class="unbrokenline"></div></div></section><section data-bespoke-state=""><div class="content"><div class="byline"><div class="classy">What creates a layer?</div></div><h2 class="left">• CSS animations (for opacity & transforms)</h2><h2 class="left">• 3D transforms & perspective</h2><h2 class="left">• Video, Canvas or Plugin w/ GPU acceleration</h2><h2 class="left">• CSS filters</h2><h2 class="left">• A stacking context drawn on top of another layer</h2><div class="unbrokenline"></div></div></section><section data-bespoke-state=""><div class="content"><div class="unbrokenline"></div><h2>Tooling is getting<strong> much</strong> better</h2><div class="unbrokenline"></div></div></section><section data-bespoke-state="chrome"><div class="content"><div class="unbrokenline"></div><h2><strong>DEMO #3</strong></h2><div class="unbrokenline"></div></div></section><section data-bespoke-state="protip"><div class="content"><h2>Don't fear the Z dimension</h2><div class="unbrokenline"></div><h2 class="left">• hover +<strong> box-shadow</strong></h2><h2 class="left">• Chrome<strong> tracing</strong></h2><h2 class="left">•<strong> Layers</strong> panel</h2><div class="unbrokenline"></div></div></section><section data-bespoke-state="success"><div class="content"><div class="unbrokenline"></div><h1><strong>Thank You!</strong></h1><div class="unbrokenline"></div><div class="me"></div><h3><a href="https://twitter.com/glenmaddern">@glenmaddern</a></h3><div class="unbrokenline"></div></div></section></article><script src="components/bespoke.js/dist/bespoke.js"></script><!-- build:js scripts/scripts.js--><script src="scripts/bespoke-plugins.js"></script><script src="scripts/rainbow.custom.min.js"></script><script src="scripts/app.js"></script><!-- endbuild--><script>(function() {
+  var config = {
+    kitId: 'rgz7pbt',
+    scriptTimeout: 3000
+  };
+  var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
+})();
+</script><!-- Google Analytics: change UA-XXXXX-X to be your site's ID.--><script>var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+s.parentNode.insertBefore(g,s)}(document,'script'));</script></body></html>

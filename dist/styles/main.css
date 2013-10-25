@@ -1,0 +1,580 @@
+/* line 3, ../../app/styles/_backgrounds.sass */
+article {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* line 9, ../../app/styles/_backgrounds.sass */
+article::before, article::after {
+  display: block;
+  position: absolute;
+  background-size: cover;
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  content: "";
+  -webkit-filter: grayscale(0.3) brightness(0.4);
+  -moz-filter: grayscale(0.3) brightness(0.4);
+  filter: grayscale(0.3) brightness(0.4);
+}
+/* line 17, ../../app/styles/_backgrounds.sass */
+article::before {
+  z-index: 1;
+  width: 40%;
+  height: 40%;
+  top: 0%;
+  left: 0%;
+  -webkit-transform-origin: top left;
+  -moz-transform-origin: top left;
+  -ms-transform-origin: top left;
+  -o-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-transform: scale(2.5);
+  -moz-transform: scale(2.5);
+  -ms-transform: scale(2.5);
+  -o-transform: scale(2.5);
+  transform: scale(2.5);
+}
+/* line 25, ../../app/styles/_backgrounds.sass */
+article::after {
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* line 33, ../../app/styles/_backgrounds.sass */
+article.painting::before {
+  background-image: url("/images/painting.gif");
+}
+/* line 35, ../../app/styles/_backgrounds.sass */
+article.protip::before {
+  -webkit-filter: contrast(0.8) brightness(0.6);
+  -moz-filter: contrast(0.8) brightness(0.6);
+  filter: contrast(0.8) brightness(0.6);
+  background-image: url("/images/bill.gif");
+  background-position: 50% 0%;
+}
+/* line 39, ../../app/styles/_backgrounds.sass */
+article.explode::before {
+  -webkit-filter: contrast(1) brightness(0.8);
+  -moz-filter: contrast(1) brightness(0.8);
+  filter: contrast(1) brightness(0.8);
+  background-image: url("/images/MindBlown.gif");
+}
+/* line 43, ../../app/styles/_backgrounds.sass */
+article.css::before {
+  background-image: url("/images/family-guy-window-blinds.gif");
+  -webkit-filter: grayscale(0.3) brightness(0.6);
+  -moz-filter: grayscale(0.3) brightness(0.6);
+  filter: grayscale(0.3) brightness(0.6);
+}
+/* line 46, ../../app/styles/_backgrounds.sass */
+article.title::before {
+  -webkit-filter: contrast(0.7) brightness(0.5);
+  -moz-filter: contrast(0.7) brightness(0.5);
+  filter: contrast(0.7) brightness(0.5);
+  background-image: url("/images/Sydney.gif");
+}
+/* line 51, ../../app/styles/_backgrounds.sass */
+article.success::before {
+  -webkit-filter: grayscale(0.5) brightness(0.4);
+  -moz-filter: grayscale(0.5) brightness(0.4);
+  filter: grayscale(0.5) brightness(0.4);
+  background-image: url("/images/apollorockygif1.gif");
+}
+/* line 54, ../../app/styles/_backgrounds.sass */
+article.kramer::before {
+  -webkit-filter: grayscale(0.5) brightness(0.6) blur(1px);
+  -moz-filter: grayscale(0.5) brightness(0.6) blur(1px);
+  filter: grayscale(0.5) brightness(0.6) blur(1px);
+  background-image: url("/images/kramer.gif");
+}
+/* line 65, ../../app/styles/_backgrounds.sass */
+article.chrome {
+  background-color: #666666;
+}
+/* line 67, ../../app/styles/_backgrounds.sass */
+article.chrome::after {
+  background-image: url("/images/chrome.jpg");
+  background-position: 50% 10%;
+  width: 60%;
+  left: 20%;
+}
+/* line 74, ../../app/styles/_backgrounds.sass */
+article.code, article.iframe {
+  background-color: #fbeecb;
+}
+/* line 76, ../../app/styles/_backgrounds.sass */
+article.code section, article.iframe section {
+  color: black;
+}
+/* line 78, ../../app/styles/_backgrounds.sass */
+article.programming {
+  background-color: white;
+  opacity: 0.95;
+}
+
+/* line 8, ../../app/styles/main.sass */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+/* line 15, ../../app/styles/main.sass */
+html .content {
+  opacity: 1;
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  transition: opacity 1s;
+}
+/* line 19, ../../app/styles/main.sass */
+html.wf-loading .content, html.wf-loading .iframe-holster {
+  opacity: 0;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+/* line 23, ../../app/styles/main.sass */
+a {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.8;
+}
+/* line 27, ../../app/styles/main.sass */
+a:hover {
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  opacity: 1;
+  border-bottom-color: inherit;
+}
+
+/* line 32, ../../app/styles/main.sass */
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 36, ../../app/styles/main.sass */
+body {
+  background: #111111;
+  font-family: source-sans-pro, sans-serif;
+  font-weight: 400;
+  color: white;
+  overflow: hidden;
+}
+
+/* line 43, ../../app/styles/main.sass */
+.bespoke-slide {
+  z-index: 2;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  box-align: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-box-pack: center;
+  box-pack: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 53, ../../app/styles/main.sass */
+.bespoke-inactive {
+  display: none;
+}
+
+/* line 56, ../../app/styles/main.sass */
+.bespoke-after-1 {
+  z-index: -1;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  opacity: 0;
+}
+/* line 60, ../../app/styles/main.sass */
+.bespoke-after-1 .content > * {
+  opacity: 0;
+}
+/* line 62, ../../app/styles/main.sass */
+.bespoke-after-1 .content.nofade > * {
+  opacity: 1;
+}
+
+/* line 65, ../../app/styles/main.sass */
+.bespoke-active {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  opacity: 1;
+}
+/* line 68, ../../app/styles/main.sass */
+.bespoke-active .content > * {
+  opacity: 1;
+}
+/* line 72, ../../app/styles/main.sass */
+.bespoke-active .content > *:nth-child(1) {
+  -webkit-transition: opacity 0.5s linear;
+  -webkit-transition-delay: 0s;
+  -moz-transition: opacity 0.5s linear 0s;
+  -o-transition: opacity 0.5s linear 0s;
+  transition: opacity 0.5s linear 0s;
+}
+/* line 72, ../../app/styles/main.sass */
+.bespoke-active .content > *:nth-child(2) {
+  -webkit-transition: opacity 0.5s linear;
+  -webkit-transition-delay: 0.3s;
+  -moz-transition: opacity 0.5s linear 0.3s;
+  -o-transition: opacity 0.5s linear 0.3s;
+  transition: opacity 0.5s linear 0.3s;
+}
+/* line 72, ../../app/styles/main.sass */
+.bespoke-active .content > *:nth-child(3) {
+  -webkit-transition: opacity 0.5s linear;
+  -webkit-transition-delay: 0.6s;
+  -moz-transition: opacity 0.5s linear 0.6s;
+  -o-transition: opacity 0.5s linear 0.6s;
+  transition: opacity 0.5s linear 0.6s;
+}
+/* line 72, ../../app/styles/main.sass */
+.bespoke-active .content > *:nth-child(4) {
+  -webkit-transition: opacity 0.5s linear;
+  -webkit-transition-delay: 0.9s;
+  -moz-transition: opacity 0.5s linear 0.9s;
+  -o-transition: opacity 0.5s linear 0.9s;
+  transition: opacity 0.5s linear 0.9s;
+}
+/* line 72, ../../app/styles/main.sass */
+.bespoke-active .content > *:nth-child(5) {
+  -webkit-transition: opacity 0.5s linear;
+  -webkit-transition-delay: 1.2s;
+  -moz-transition: opacity 0.5s linear 1.2s;
+  -o-transition: opacity 0.5s linear 1.2s;
+  transition: opacity 0.5s linear 1.2s;
+}
+/* line 72, ../../app/styles/main.sass */
+.bespoke-active .content > *:nth-child(6) {
+  -webkit-transition: opacity 0.5s linear;
+  -webkit-transition-delay: 1.5s;
+  -moz-transition: opacity 0.5s linear 1.5s;
+  -o-transition: opacity 0.5s linear 1.5s;
+  transition: opacity 0.5s linear 1.5s;
+}
+/* line 72, ../../app/styles/main.sass */
+.bespoke-active .content > *:nth-child(7) {
+  -webkit-transition: opacity 0.5s linear;
+  -webkit-transition-delay: 1.8s;
+  -moz-transition: opacity 0.5s linear 1.8s;
+  -o-transition: opacity 0.5s linear 1.8s;
+  transition: opacity 0.5s linear 1.8s;
+}
+/* line 72, ../../app/styles/main.sass */
+.bespoke-active .content > *:nth-child(8) {
+  -webkit-transition: opacity 0.5s linear;
+  -webkit-transition-delay: 2.1s;
+  -moz-transition: opacity 0.5s linear 2.1s;
+  -o-transition: opacity 0.5s linear 2.1s;
+  transition: opacity 0.5s linear 2.1s;
+}
+/* line 72, ../../app/styles/main.sass */
+.bespoke-active .content > *:nth-child(9) {
+  -webkit-transition: opacity 0.5s linear;
+  -webkit-transition-delay: 2.4s;
+  -moz-transition: opacity 0.5s linear 2.4s;
+  -o-transition: opacity 0.5s linear 2.4s;
+  transition: opacity 0.5s linear 2.4s;
+}
+/* line 72, ../../app/styles/main.sass */
+.bespoke-active .content > *:nth-child(10) {
+  -webkit-transition: opacity 0.5s linear;
+  -webkit-transition-delay: 2.7s;
+  -moz-transition: opacity 0.5s linear 2.7s;
+  -o-transition: opacity 0.5s linear 2.7s;
+  transition: opacity 0.5s linear 2.7s;
+}
+
+/* line 75, ../../app/styles/main.sass */
+section {
+  color: #f2f2f2;
+  text-align: center;
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  -ms-perspective: 1000px;
+  -o-perspective: 1000px;
+  perspective: 1000px;
+}
+/* line 80, ../../app/styles/main.sass */
+section .content {
+  padding: 1em;
+  word-break: break-word;
+}
+/* line 84, ../../app/styles/main.sass */
+section h1 {
+  font-size: 4em;
+  font-weight: 400;
+  margin: 0;
+}
+/* line 89, ../../app/styles/main.sass */
+section h2 {
+  font-size: 3em;
+  font-weight: 400;
+  margin: 0;
+}
+/* line 94, ../../app/styles/main.sass */
+section h3 {
+  font-size: 2.5em;
+  font-weight: 400;
+  margin: 0;
+}
+/* line 99, ../../app/styles/main.sass */
+section h4 {
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: 400;
+}
+/* line 104, ../../app/styles/main.sass */
+section .underline {
+  border-bottom: 0.1em solid white;
+}
+/* line 107, ../../app/styles/main.sass */
+section .strikethrough {
+  text-decoration: line-through;
+  color: #999999;
+}
+/* line 111, ../../app/styles/main.sass */
+section .byline, section .row {
+  margin: 20px 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  box-align: center;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+/* line 116, ../../app/styles/main.sass */
+section .byline {
+  font-size: 1em;
+  color: #d9d9d9;
+}
+/* line 119, ../../app/styles/main.sass */
+section .byline::before, section .byline::after {
+  content: "";
+  display: block;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  box-flex: 1;
+  height: 0;
+  padding-top: 1px;
+  border-bottom: 1px dotted #bfbfbf;
+}
+/* line 126, ../../app/styles/main.sass */
+section .byline > * {
+  margin-right: 20px;
+}
+/* line 128, ../../app/styles/main.sass */
+section .byline > *:first-child {
+  margin-left: 20px;
+}
+/* line 131, ../../app/styles/main.sass */
+section .unbrokenline {
+  border-bottom: 1px dotted #bfbfbf;
+  margin: 30px 0 30px;
+}
+/* line 135, ../../app/styles/main.sass */
+section .classy {
+  font-size: 2em;
+  font-family: kepler-std, Georgia, serif;
+  font-weight: 400;
+  font-style: italic;
+}
+/* line 141, ../../app/styles/main.sass */
+section .me {
+  margin: 10px auto;
+  width: 100px;
+  height: 100px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  background-image: url("../images/me_headshot.jpg");
+  background-size: 100%;
+  background-position: 0 0;
+}
+/* line 150, ../../app/styles/main.sass */
+section .iframe-holster, section.bespoke-inactive .iframe-holster.no-animation {
+  margin: 24px 48px 48px;
+  position: relative;
+  width: calc(90% - 96px);
+  height: calc(90% - 72px);
+  -webkit-transform: translateZ(0px) scale(1) rotateY(4deg);
+  -moz-transform: translateZ(0px) scale(1) rotateY(4deg);
+  -ms-transform: translateZ(0px) scale(1) rotateY(4deg);
+  -o-transform: translateZ(0px) scale(1) rotateY(4deg);
+  transform: translateZ(0px) scale(1) rotateY(4deg);
+  -webkit-transition: -webkit-transform 0.6s;
+  -moz-transition: -moz-transform 0.6s;
+  -o-transition: -o-transform 0.6s;
+  transition: transform 0.6s;
+}
+/* line 157, ../../app/styles/main.sass */
+section .iframe-holster.zoomed, section.bespoke-inactive .iframe-holster.no-animation.zoomed {
+  width: calc(66% - 96px);
+  height: calc(66% - 72px);
+  -webkit-transform: translateZ(0px) scale(1.5) rotateY(4deg);
+  -moz-transform: translateZ(0px) scale(1.5) rotateY(4deg);
+  -ms-transform: translateZ(0px) scale(1.5) rotateY(4deg);
+  -o-transform: translateZ(0px) scale(1.5) rotateY(4deg);
+  transform: translateZ(0px) scale(1.5) rotateY(4deg);
+}
+/* line 162, ../../app/styles/main.sass */
+section .iframe-holster iframe, section.bespoke-inactive .iframe-holster.no-animation iframe {
+  background-color: white;
+  display: block;
+  position: absolute;
+  border: none;
+  height: calc(100% - 48px);
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 0 0px 8px white, 0 0 0px 9px rgba(0, 0, 0, 0.1), 10px 10px 20px 3px rgba(0, 0, 0, 0.2), -10px 10px 20px 3px rgba(0, 0, 0, 0.2);
+}
+/* line 173, ../../app/styles/main.sass */
+section.bespoke-inactive .iframe-holster {
+  -webkit-transform: translateZ(-200px) scale(1) rotateY(10deg);
+  -moz-transform: translateZ(-200px) scale(1) rotateY(10deg);
+  -ms-transform: translateZ(-200px) scale(1) rotateY(10deg);
+  -o-transform: translateZ(-200px) scale(1) rotateY(10deg);
+  transform: translateZ(-200px) scale(1) rotateY(10deg);
+}
+
+/* line 176, ../../app/styles/main.sass */
+.content.example {
+  display: flex;
+  width: 100%;
+}
+/* line 179, ../../app/styles/main.sass */
+.content.example .code {
+  -webkit-flex: 1;
+}
+/* line 181, ../../app/styles/main.sass */
+.content.example iframe {
+  background: white;
+  -webkit-flex: 1;
+}
+
+/* line 185, ../../app/styles/main.sass */
+.pre, code {
+  font-family: source-code-pro, "Monaco", courier, monospace;
+  font-size: 1.2em;
+  font-weight: 400;
+  text-align: left;
+}
+
+/* line 191, ../../app/styles/main.sass */
+.pre {
+  position: relative;
+  box-shadow: 0 0 1px 0 black, 0 0 0px 8px white, 0 0 0px 9px rgba(0, 0, 0, 0.1), 10px 10px 20px 3px rgba(0, 0, 0, 0.2), -10px 10px 20px 3px rgba(0, 0, 0, 0.2);
+  margin: 30px;
+  padding: 10px;
+  background: #fdf6e3;
+}
+
+/* line 198, ../../app/styles/main.sass */
+pre {
+  padding: 0;
+  margin: 0;
+  font-size: 1.1em;
+}
+
+/* line 203, ../../app/styles/main.sass */
+.added pre {
+  font-weight: bold;
+  color: green;
+}
+/* line 206, ../../app/styles/main.sass */
+.added pre::before {
+  content: "+ ";
+}
+
+/* line 209, ../../app/styles/main.sass */
+.bespoke-bullet {
+  opacity: 1 !important;
+  transition: all 0.3s;
+}
+
+/* line 212, ../../app/styles/main.sass */
+.bespoke-bullet-inactive {
+  opacity: 0 !important;
+}
+
+/* line 215, ../../app/styles/main.sass */
+.strike {
+  text-decoration: line-through;
+}
+
+/* line 218, ../../app/styles/main.sass */
+div[id^="gist"] {
+  margin-top: 30px;
+  max-height: 600px;
+  overflow: scroll;
+  box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.1), 10px 10px 10px rgba(0, 0, 0, 0.2), -10px 10px 10px rgba(0, 0, 0, 0.2);
+}
+/* line 223, ../../app/styles/main.sass */
+div[id^="gist"] .gist-file {
+  margin-bottom: 0;
+}
+/* line 225, ../../app/styles/main.sass */
+div[id^="gist"] .gist-meta {
+  display: none;
+}
+
+/* line 228, ../../app/styles/main.sass */
+table {
+  font-size: 1.8em;
+}
+/* line 230, ../../app/styles/main.sass */
+table td {
+  padding: 0.5em;
+}
+/* line 232, ../../app/styles/main.sass */
+table thead {
+  font-weight: bold;
+  border-bottom: 1px solid black;
+}
+/* line 235, ../../app/styles/main.sass */
+table tr td:first-child {
+  font-weight: bold;
+  border-right: 1px solid black;
+}
+/* line 238, ../../app/styles/main.sass */
+table a {
+  border-bottom: 1px dashed #d9d9d9;
+}
+
+/* line 241, ../../app/styles/main.sass */
+h2.left {
+  text-align: left;
+}
