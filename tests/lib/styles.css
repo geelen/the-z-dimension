@@ -23,6 +23,7 @@ html, body {
 section {
   position: absolute;
   left: 0;
+  top: 150px;
 }
 section .me {
   background-image: url('/app/images/me_headshot.jpg');
