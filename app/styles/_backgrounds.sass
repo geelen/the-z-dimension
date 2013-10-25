@@ -31,41 +31,41 @@ article
 
   // use ::before for gifs (small size, scaled up)
   &.painting::before
-    background-image: url('images/painting.gif')
+    background-image: url('../images/painting.gif')
   &.protip::before
     +filter(contrast(0.8) brightness(0.6 * $brightnessFactor))
-    background-image: url('images/bill.gif')
+    background-image: url('../images/bill.gif')
     background-position: 50% 0%
   &.explode::before
     +filter(contrast(1.0) brightness(0.8 * $brightnessFactor))
-    background-image: url('images/MindBlown.gif')
+    background-image: url('../images/MindBlown.gif')
     //background-position: 50% 50%
   &.css::before
-    background-image: url('images/family-guy-window-blinds.gif')
+    background-image: url('../images/family-guy-window-blinds.gif')
     +filter(grayscale(0.3) brightness(0.6 * $brightnessFactor))
   &.title::before
     +filter(contrast(0.7) brightness(0.5 * $brightnessFactor))
-    background-image: url('images/Sydney.gif')
+    background-image: url('../images/Sydney.gif')
   //&.underconstruction::before
   //  background-image: url(http://www.lfed-mw.com/animations/under_construction_animated.gif)
   &.success::before
     +filter(grayscale(0.5) brightness(0.4 * $brightnessFactor))
-    background-image: url('images/apollorockygif1.gif')
+    background-image: url('../images/apollorockygif1.gif')
   &.kramer::before
     +filter(grayscale(0.5) brightness(0.6 * $brightnessFactor) blur(1px))
-    background-image: url('images/kramer.gif')
+    background-image: url('../images/kramer.gif')
   //&.trolling::before
   //  width: 20%
   //  height: 20%
   //  +transform(scale(5.5))
   //  +filter(blur(1px) grayscale(0.5) brightness(0.3 * $brightnessFactor))
-  //  background-image: url('http:/images.wikia.com/nickfanonimages/f/f3/Troll_cat_gif_(1).gif')
+  //  background-image: url('http:/images.wikia.com/nickfanon../images/f/f3/Troll_cat_gif_(1).gif')
 
   // use ::after for images (full size, cover)
   &.chrome
     background-color: darken(white, 60%)
     &::after
-      background-image: url('images/chrome.jpg')
+      background-image: url('../images/chrome.jpg')
       background-position: 50% 10%
       width: 60%
       left: 20%
