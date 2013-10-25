@@ -42,6 +42,7 @@ article
     //background-position: 50% 50%
   &.css::before
     background-image: url('/images/family-guy-window-blinds.gif')
+    +filter(grayscale(0.3) brightness(0.6 * $brightnessFactor))
   &.title::before
     +filter(contrast(0.7) brightness(0.5 * $brightnessFactor))
     background-image: url('/images/Sydney.gif')
