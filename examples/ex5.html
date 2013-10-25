@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flat</title>
+  <link rel="stylesheet" href="/components/normalize-css/normalize.css">
+  <style>
+    html { font-size: 32px; }
+    .a, .b, .c, .d { padding: 10px; margin: 4px; }
+    .a { background-color: hsl(0,80%,80%); }
+    .b { background-color: hsl(90,80%,80%); }
+    .c { background-color: hsl(180,80%,80%); }
+    .d { background-color: hsl(270,80%,80%); }
+
+    div:hover, span:hover { box-shadow: 0 0 40px 40px black; }
+    html { color: red; }
+    span { background-color: hsl(45,80%,80%); }
+    .floated { padding: 10px; background-color: hsl(135,80%,80%); float: left; }
+    .positioned { background-color: hsl(225,80%,80%); position: relative; }
+  </style>
+</head>
+<body>
+  <div class="a">A
+    <div class="c">C</div>
+    <div class="floated">FLOATED</div>
+    <div class="positioned">POSITIONED</div>
+    <div class="d">
+      <span>INLINE</span>
+    </div>
+  </div>
+  <div class="b">
+    B
+  </div>
+</body>
+</html>
