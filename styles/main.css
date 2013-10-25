@@ -46,14 +46,14 @@ article::after {
 }
 /* line 33, ../../app/styles/_backgrounds.sass */
 article.painting::before {
-  background-image: url("images/painting.gif");
+  background-image: url("../images/painting.gif");
 }
 /* line 35, ../../app/styles/_backgrounds.sass */
 article.protip::before {
   -webkit-filter: contrast(0.8) brightness(0.6);
   -moz-filter: contrast(0.8) brightness(0.6);
   filter: contrast(0.8) brightness(0.6);
-  background-image: url("images/bill.gif");
+  background-image: url("../images/bill.gif");
   background-position: 50% 0%;
 }
 /* line 39, ../../app/styles/_backgrounds.sass */
@@ -61,11 +61,11 @@ article.explode::before {
   -webkit-filter: contrast(1) brightness(0.8);
   -moz-filter: contrast(1) brightness(0.8);
   filter: contrast(1) brightness(0.8);
-  background-image: url("images/MindBlown.gif");
+  background-image: url("../images/MindBlown.gif");
 }
 /* line 43, ../../app/styles/_backgrounds.sass */
 article.css::before {
-  background-image: url("images/family-guy-window-blinds.gif");
+  background-image: url("../images/family-guy-window-blinds.gif");
   -webkit-filter: grayscale(0.3) brightness(0.6);
   -moz-filter: grayscale(0.3) brightness(0.6);
   filter: grayscale(0.3) brightness(0.6);
@@ -75,21 +75,21 @@ article.title::before {
   -webkit-filter: contrast(0.7) brightness(0.5);
   -moz-filter: contrast(0.7) brightness(0.5);
   filter: contrast(0.7) brightness(0.5);
-  background-image: url("images/Sydney.gif");
+  background-image: url("../images/Sydney.gif");
 }
 /* line 51, ../../app/styles/_backgrounds.sass */
 article.success::before {
   -webkit-filter: grayscale(0.5) brightness(0.4);
   -moz-filter: grayscale(0.5) brightness(0.4);
   filter: grayscale(0.5) brightness(0.4);
-  background-image: url("images/apollorockygif1.gif");
+  background-image: url("../images/apollorockygif1.gif");
 }
 /* line 54, ../../app/styles/_backgrounds.sass */
 article.kramer::before {
   -webkit-filter: grayscale(0.5) brightness(0.6) blur(1px);
   -moz-filter: grayscale(0.5) brightness(0.6) blur(1px);
   filter: grayscale(0.5) brightness(0.6) blur(1px);
-  background-image: url("images/kramer.gif");
+  background-image: url("../images/kramer.gif");
 }
 /* line 65, ../../app/styles/_backgrounds.sass */
 article.chrome {
@@ -97,7 +97,7 @@ article.chrome {
 }
 /* line 67, ../../app/styles/_backgrounds.sass */
 article.chrome::after {
-  background-image: url("images/chrome.jpg");
+  background-image: url("../images/chrome.jpg");
   background-position: 50% 10%;
   width: 60%;
   left: 20%;
