@@ -1,0 +1,18 @@
+{
+  "name": "bespoke.js",
+  "version": "0.1.1",
+  "main": "./dist/bespoke.min.js",
+  "ignore": [
+    "**/.*"
+  ],
+  "homepage": "https://github.com/markdalgleish/bespoke.js",
+  "_release": "0.1.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.1",
+    "commit": "65d7372b6155989e51c22ebe0346cf5dbabf66e1"
+  },
+  "_source": "git://github.com/markdalgleish/bespoke.js.git",
+  "_target": "~0.1.1",
+  "_originalSource": "bespoke.js"
+}
