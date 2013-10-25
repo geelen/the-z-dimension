@@ -1,9 +1,22 @@
 <html>
 <head>
+  <link rel="stylesheet" href="/.tmp/styles/main.css">
   <link rel="stylesheet" href="lib/styles.css">
 </head>
 <body ng-controller="BodyCtrl">
-<img src="" rel:animated_src="lib/sneakers.gif">
+<section class="">
+  <div class="content">
+    <div class="unbrokenline"></div>
+    <h1><strong>Thank You!</strong></h1>
+
+    <div class="unbrokenline"></div>
+    <div class="me"></div>
+    <h3><a href="https://twitter.com/glenmaddern">@glenmaddern</a></h3>
+
+    <div class="unbrokenline"></div>
+  </div>
+</section>
+<img src="" rel:animated_src="lib/apollorockygif1.gif">
 <script src="lib/libgif.js"></script>
 <script src="../app/components/threejs/build/three.js"></script>
 <script src="lib/TrackballControls.js"></script>
@@ -31,11 +44,15 @@
       window.frames = frames;
       sgCanvas.remove();
 
-      var camera, controls, scene, renderer;
+      var camera, controls, scene, renderer, frame = 0, animating = false;
+      function cameraPos(camera) {
+        camera.position.z = 1200 - 2*frame;
+        camera.position.x = 0.1*frame;
+      };
 
       function init() {
         camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
-        camera.position.z = 600;
+        cameraPos(camera);
 
         controls = new THREE.TrackballControls(camera);
 
@@ -43,7 +60,7 @@
         particleFrames = [];
         time(function () {
 
-          for (var i = 0, l = frames.length; i < l; i++) {
+          for (var i = 0, l = frames.length; i < l; i += 2) {
             var geometry = new THREE.BufferGeometry();
 
             geometry.attributes = {
@@ -77,10 +94,10 @@
             }
             geometry.computeBoundingSphere();
 
-            var material = new THREE.ParticleBasicMaterial({ size: 0.2, vertexColors: true });
+            var material = new THREE.ParticleBasicMaterial({ size: 0.3, vertexColors: true });
 
             var particleSystem = new THREE.ParticleSystem(geometry, material);
-            particleSystem.position.set(0, 0, 250 - i * 10);
+            particleSystem.position.set(0, 0, 250 - i * 5);
             scene.add(particleSystem);
             particleFrames.push(particleSystem);
 
@@ -104,13 +121,16 @@
 
       function animate() {
         // note: three.js includes requestAnimationFrame shim
-        requestAnimationFrame(animate);
+        if (animating) requestAnimationFrame(animate);
+        frame++;
 
         particleFrames.forEach(function (particleFrame, i) {
-          var newZ = particleFrame.position.z + 10;
-          if (newZ > 250) newZ -= 10 * frames.length;
+          var newZ = particleFrame.position.z + 1.5;
+          if (newZ > 250) newZ -= 5 * frames.length;
           particleFrame.position.set(0, 0, newZ);
         });
+
+        cameraPos(camera);
 
         controls.update();
 
@@ -119,9 +139,23 @@
 
       init();
       animate();
+
+      document.addEventListener('click', function() {
+        frame = 0;
+        animating = true;
+        animate();
+      });
     });
   })();
 
 
+</script>
+<script>(function() {
+  var config = {
+    kitId: 'rgz7pbt',
+    scriptTimeout: 3000
+  };
+  var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
+})();
 </script>
 </body>

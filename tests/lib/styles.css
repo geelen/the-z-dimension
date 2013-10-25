@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: white;
+  background-color: black;
 }
 
 #datSurround {
@@ -14,4 +14,16 @@ body {
 
 canvas {
   background-color: black;
+}
+
+html, body {
+  height: 100%;
+}
+
+section {
+  position: absolute;
+  left: 0;
+}
+section .me {
+  background-image: url('/app/images/me_headshot.jpg');
 }
